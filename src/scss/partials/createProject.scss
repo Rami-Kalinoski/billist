@@ -61,9 +61,15 @@
                 color: #ececec;
                 font-size: 1.25rem;
                 font-family: "Open Sans", sans-serif;
+                text-decoration: none;
                 border: none;
                 border-radius: 5px;                    
                 padding: 1rem;
+                transition: ease .3s;
+                &:hover {
+                    background-color: #050505;
+                    transition: ease .3s;
+                }
             }
         }
     }
@@ -113,6 +119,12 @@
                 border: none;
                 border-radius: 5px;                    
                 padding: 1rem;
+                cursor: pointer;
+                transition: ease .3s;
+                &:hover {
+                    background-color: #0f0f0f;
+                    transition: ease .3s;
+                }
                 img {
                     height: 1.5rem;
                 }

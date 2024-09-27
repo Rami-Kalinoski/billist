@@ -20,10 +20,11 @@
     justify-content: center;
     align-items: center;
     gap: 3rem;
-    button {
+    .header-button {
         color: #ececec;
         font-size: 1.25rem;
         font-family: "Open Sans", sans-serif;
+        text-decoration: none;
         background-color: #131313;
         border: none;
         border-radius: 5px;

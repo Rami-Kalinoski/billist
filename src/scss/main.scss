@@ -1,9 +1,9 @@
 // USES
-@use './partials/header';
-@use './partials/footer';
+@use './components/header';
+@use './components/footer';
 
 @use './partials/landing';
-@use './partials/login';
+@use './partials/access';
 @use './partials/home';
 @use './partials/createProject';
 @use './partials/manageProject';

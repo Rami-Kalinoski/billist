@@ -1,11 +1,37 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 import userImg from '../assets/icons/user.png';
 import addImg from '../assets/icons/add.png';
+import Opacator from '../components/Opacator';
+import { Link } from 'react-router-dom';
 
 export default function CreateProject() {
+    const [addMember, setAddMember] = useState(false);
     return (
         <div className='create-project-screen'>
+            {addMember===true && 
+                <div className='add-friend-component'>
+                    <section className='title-section'>
+                        <h4>AÑADIR AMIGO</h4>
+                    </section>
+                    <section className='form-section'>
+                        <article className='inputs-article'>
+                            <input type="text" name="" id="" placeholder='Nombre...' />
+                            <input type="number" name="" id="" placeholder='Teléfono...' />
+                            <input type="email" name="" id="" placeholder='Email...' />
+                        </article>
+                        <article className='buttons-article'>
+                            <button className='cancel-button' onClick={()=>{
+                                setAddMember(false);
+                            }}>CANCELAR</button>
+                            <button className='add-button' onClick={()=>{
+                                setAddMember(false);
+                            }}>AGREGAR</button>
+                        </article>
+                    </section>
+                </div>
+            }
+            {addMember===true && <Opacator></Opacator>}
             <section className='left-section'>
                 <h2 className='title'>Crear proyecto</h2>
                 <form action="" className='create-project-form'>
@@ -17,7 +43,7 @@ export default function CreateProject() {
                         </div>
                         <textarea name="" id="" className='textarea' placeholder='Descripción (opcional)'></textarea>
                     </div>
-                    <button className='create-project-button'>CREAR PROYECTO</button>
+                    <Link to="/manageProject" className='create-project-button'>CREAR PROYECTO</Link>
                 </form>
             </section>
             <section className='right-section'>
@@ -33,7 +59,9 @@ export default function CreateProject() {
                             <p>Susana</p>
                         </li>
                     </ul>
-                    <button className='add-member-button'> <img src={addImg} alt="Add member" /> añadir integrante </button>
+                    <button className='add-member-button' onClick={()=>{
+                                setAddMember(true);
+                            }}> <img src={addImg} alt="Add member" /> añadir integrante </button>
                 </article>
             </section>
         </div>

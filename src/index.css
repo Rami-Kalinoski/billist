@@ -22,10 +22,11 @@
   align-items: center;
   gap: 3rem;
 }
-.header-bottom button {
+.header-bottom .header-button {
   color: #ececec;
   font-size: 1.25rem;
   font-family: "Open Sans", sans-serif;
+  text-decoration: none;
   background-color: #131313;
   border: none;
   border-radius: 5px;
@@ -33,7 +34,7 @@
   transition: ease 0.3s;
   cursor: pointer;
 }
-.header-bottom button:hover {
+.header-bottom .header-button:hover {
   background-color: #1a1a1a;
   transition: ease 0.3s;
 }
@@ -252,6 +253,7 @@
   color: #ececec;
   font-size: 1.25rem;
   font-family: "Open Sans", sans-serif;
+  text-decoration: none;
   background-color: #333333;
   border: none;
   border-radius: 5px;
@@ -340,6 +342,7 @@
   color: #ececec;
   font-size: 1.25rem;
   font-family: "Open Sans", sans-serif;
+  text-decoration: none;
   background-color: #333333;
   border: none;
   border-radius: 5px;
@@ -457,6 +460,7 @@
   font-weight: 400;
   background: none;
   border: none;
+  cursor: pointer;
 }
 .home-screen .left-section .friends-article .title-div .add-friend-button img {
   height: 1.75rem;
@@ -512,6 +516,7 @@
   font-size: 1.25rem;
   font-family: "Open Sans", sans-serif;
   font-weight: 400;
+  text-decoration: none;
   padding: 0.5rem 1rem;
   background-color: #0c0c0c;
   border: none;
@@ -626,9 +631,15 @@
   color: #ececec;
   font-size: 1.25rem;
   font-family: "Open Sans", sans-serif;
+  text-decoration: none;
   border: none;
   border-radius: 5px;
   padding: 1rem;
+  transition: ease 0.3s;
+}
+.create-project-screen .left-section .create-project-form .create-project-button:hover {
+  background-color: #050505;
+  transition: ease 0.3s;
 }
 .create-project-screen .right-section {
   display: flex;
@@ -678,6 +689,12 @@
   border: none;
   border-radius: 5px;
   padding: 1rem;
+  cursor: pointer;
+  transition: ease 0.3s;
+}
+.create-project-screen .right-section .members-article .add-member-button:hover {
+  background-color: #0f0f0f;
+  transition: ease 0.3s;
 }
 .create-project-screen .right-section .members-article .add-member-button img {
   height: 1.5rem;

@@ -5,7 +5,7 @@ import {BrowserRouter, Routes, Route} from 'react-router-dom';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import Landing from './pages/Landing';
-import Login from './pages/Login';
+import Access from './pages/Access';
 import Home from './pages/Home'
 import CreateProject from './pages/CreateProject'
 import ManageProject from './pages/ManageProject'
@@ -24,14 +24,14 @@ function App() {
         <Header></Header>
 
         {/* <Landing></Landing> */}
-        {/* <Login></Login> */}
+        {/* <Access></Access> */}
         {/* <Home></Home> */}
         {/* <CreateProject></CreateProject> */}
         {/* <ManageProject></ManageProject> */}
         
         <Routes>
           <Route path='/' element={<Landing></Landing>} />
-          <Route path='login' element={<Login></Login>} />
+          <Route path='access' element={<Access></Access>} />
           <Route path='home' element={<Home></Home>} />
           <Route path='createProject' element={<CreateProject></CreateProject>} />
           <Route path='manageProject' element={<ManageProject></ManageProject>} />

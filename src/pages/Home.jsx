@@ -1,12 +1,38 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 import userImg from '../assets/icons/user.png';
 import addImg from '../assets/icons/add.png';
 import { Link } from 'react-router-dom';
+// import AddFriend from '../components/AddFriend';
+import Opacator from '../components/Opacator';
 
 export default function Home() {
+    const [addFriend, setAddFriend] = useState(false);
     return (
         <div className='home-screen'>
+            {addFriend===true &&
+                <div className='add-friend-component'>
+                    <section className='title-section'>
+                        <h4>AÑADIR AMIGO</h4>
+                    </section>
+                    <section className='form-section'>
+                        <article className='inputs-article'>
+                            <input type="text" name="" id="" placeholder='Nombre...' />
+                            <input type="number" name="" id="" placeholder='Teléfono...' />
+                            <input type="email" name="" id="" placeholder='Email...' />
+                        </article>
+                        <article className='buttons-article'>
+                            <button className='cancel-button' onClick={()=>{
+                                setAddFriend(false);
+                            }}>CANCELAR</button>
+                            <button className='add-button' onClick={()=>{
+                                setAddFriend(false);
+                            }}>AGREGAR</button>
+                        </article>
+                    </section>
+                </div>
+            }
+            {addFriend===true && <Opacator></Opacator>}
             <section className='left-section'>
                 <article className='balance-article'>
                     <h2 className='balance-title'>SALDO GENERAL PENDIENTE</h2>
@@ -18,7 +44,9 @@ export default function Home() {
                 <article className='friends-article'>
                     <div className='title-div'>
                         <h2 className='friends-title'>AMIGOS</h2>
-                        <button className='add-friend-button'> <img src={addImg} alt="Add Friend" /> añadir amigo</button>
+                        <button className='add-friend-button' onClick={()=>{
+                            setAddFriend(true);
+                        }}> <img src={addImg} alt="Add Friend" /> añadir amigo</button>
                     </div>
                     <div className='list-div'>
                         <ul>
@@ -41,7 +69,7 @@ export default function Home() {
             <section className='right-section'>
                 <article className='title-article'>
                     <h2 className='projects-title'>Proyectos</h2>
-                    <button className='create-project-button'> <img src={addImg} alt="Create Icon" /> CREAR</button>
+                    <Link to='/createProject' className='create-project-button'> <img src={addImg} alt="Create Icon" /> CREAR</Link>
                 </article>
                 <article className='projects-list-article'>
                     <Link to='/manageProject' className='project-div'>
