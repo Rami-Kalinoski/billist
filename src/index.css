@@ -1,13 +1,1212 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+.header-top {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5rem;
+  height: 15vh;
+  background-color: #0a0a0a;
+  border-bottom: solid 1px #333333;
+}
+.header-top .header-logo {
+  height: 4vw;
+}
+.header-top .header-title {
+  height: 3vw;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.header-bottom {
+  height: 5vw;
+  background-color: #0a0a0a;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 3rem;
 }
+.header-bottom button {
+  color: #ececec;
+  font-size: 1.25rem;
+  font-family: "Open Sans", sans-serif;
+  background-color: #131313;
+  border: none;
+  border-radius: 5px;
+  padding: 0.75rem 1.5rem;
+  transition: ease 0.3s;
+  cursor: pointer;
+}
+.header-bottom button:hover {
+  background-color: #1a1a1a;
+  transition: ease 0.3s;
+}
+
+@media (max-width: 650px) {
+  .header {
+    height: 4rem;
+  }
+  .header .header-logo {
+    height: 3rem;
+  }
+  .header .header-title {
+    height: 2rem;
+  }
+}
+@media (max-width: 200px) {
+  .header {
+    height: 4rem;
+  }
+  .header .header-logo {
+    height: 2rem;
+  }
+  .header .header-title {
+    height: 1.25rem;
+  }
+}
+.footer {
+  display: flex;
+  flex-direction: column;
+  height: 7.5vw;
+  background-color: #0a0a0a;
+}
+.footer .footer-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 50%;
+  border-bottom: solid 1px #222222;
+  padding: 1rem 2rem;
+}
+.footer .footer-top .landing-page-link {
+  color: #ececec;
+  font-size: 1.75rem;
+  font-weight: bold;
+  font-family: "Open Sans", sans-serif;
+  text-decoration: none;
+}
+.footer .footer-top .landing-page-link:hover {
+  text-decoration: underline solid 1px #ececec;
+}
+.footer .footer-top p {
+  color: #ececec;
+  font-size: 1.5rem;
+  font-family: "Open Sans", sans-serif;
+}
+.footer .footer-top p .uade-link {
+  color: #ececec;
+  font-size: 1.5rem;
+  text-decoration: none;
+  font-family: "Open Sans", sans-serif;
+}
+.footer .footer-top p .uade-link:hover {
+  text-decoration: underline solid 1px #ececec;
+}
+.footer .footer-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 50%;
+  padding: 1rem 2rem;
+}
+.footer .footer-bottom .location {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  color: #ececec;
+  font-size: 1.5rem;
+  font-family: "Open Sans", sans-serif;
+}
+.footer .footer-bottom .location img {
+  height: 1.75rem;
+}
+.footer .footer-bottom .developed-by-text {
+  color: #ececec;
+  font-size: 1.5rem;
+  font-family: "Open Sans", sans-serif;
+}
+.footer .footer-bottom .developed-by-text a {
+  color: #ececec;
+  font-size: 1.5rem;
+  text-decoration: none;
+  font-family: "Open Sans", sans-serif;
+}
+.footer .footer-bottom .developed-by-text a:hover {
+  text-decoration: underline solid 1px #ececec;
+}
+
+.landing-section {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  gap: 2.5rem;
+  padding: 5rem 10rem;
+}
+.landing-section h2 {
+  color: #ececec;
+  font-size: 3rem;
+  font-weight: bold;
+  font-family: "Open Sans", sans-serif;
+  text-decoration: underline solid 2px #ececec;
+}
+.landing-section article {
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+}
+.landing-section article div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.landing-section article div p {
+  color: #ececec;
+  font-size: 1.5rem;
+  font-family: "Open Sans", sans-serif;
+  text-align: justify;
+  width: 80%;
+}
+.landing-section article div img {
+  height: 7.5rem;
+}
+
+.top-section {
+  margin-top: 2.5rem;
+}
+
+.bottom-section {
+  margin-bottom: 5rem;
+}
+
+.login-main-div {
+  display: flex;
+  height: 100vh;
+}
+.login-main-div .banner-section {
+  width: 30vw;
+  background-color: #111111;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5rem;
+}
+.login-main-div .banner-section .banner-title {
+  height: 5rem;
+}
+.login-main-div .banner-section .banner-logo {
+  height: 15rem;
+}
+.login-main-div .banner-section p {
+  color: #ececec;
+  font-size: 1.25rem;
+  font-family: "Open Sans", sans-serif;
+  text-align: center;
+  width: 70%;
+}
+.login-main-div .signup-section {
+  width: 70vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.login-main-div .signup-section .top-article {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  gap: 5rem;
+  height: 90vh;
+  padding: 5rem 10rem;
+}
+.login-main-div .signup-section .top-article h2 {
+  color: #ececec;
+  font-size: 2.5rem;
+  font-family: "Open Sans", sans-serif;
+  text-align: start;
+  text-decoration: underline solid 1.5px #ececec;
+}
+.login-main-div .signup-section .top-article .signup-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: start;
+  height: 60%;
+  width: 100%;
+}
+.login-main-div .signup-section .top-article .signup-form .inputs-div {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: 100%;
+}
+.login-main-div .signup-section .top-article .signup-form .inputs-div .input {
+  width: 100%;
+  background: none;
+  border: solid 1.5px #333333;
+  border-radius: 5px;
+  padding: 0.5rem 1rem;
+  color: #ececec;
+  font-size: 1.25rem;
+  font-family: "Open Sans", sans-serif;
+}
+.login-main-div .signup-section .top-article .signup-form .signup-button {
+  width: 100%;
+  padding: 1rem;
+  color: #ececec;
+  font-size: 1.25rem;
+  font-family: "Open Sans", sans-serif;
+  background-color: #333333;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: ease 0.3s;
+}
+.login-main-div .signup-section .top-article .signup-form .signup-button:hover {
+  background-color: #555555;
+  transition: ease 0.3s;
+}
+.login-main-div .signup-section .bottom-article {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  padding: 0rem 2.5rem;
+  height: 10vh;
+  border-top: solid 1px #333333;
+}
+.login-main-div .signup-section .bottom-article p {
+  color: #ececec;
+  font-size: 1.25rem;
+  font-family: "Open Sans", sans-serif;
+  text-align: center;
+}
+.login-main-div .signup-section .bottom-article p .goto-login {
+  color: violet;
+  font-size: 1.25rem;
+  font-family: "Open Sans", sans-serif;
+  text-align: center;
+  border: none;
+  background: none;
+  margin-left: 1rem;
+  cursor: pointer;
+}
+.login-main-div .signup-section .bottom-article p .goto-login:hover {
+  text-decoration: underline solid 1px violet;
+}
+.login-main-div .login-section {
+  width: 70vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.login-main-div .login-section .top-article {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  gap: 5rem;
+  height: 90vh;
+  padding: 5rem 10rem;
+}
+.login-main-div .login-section .top-article h2 {
+  color: #ececec;
+  font-size: 2.5rem;
+  font-family: "Open Sans", sans-serif;
+  text-align: start;
+  text-decoration: underline solid 1.5px #ececec;
+}
+.login-main-div .login-section .top-article .login-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: start;
+  height: 60%;
+  width: 100%;
+}
+.login-main-div .login-section .top-article .login-form .inputs-div {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: 100%;
+}
+.login-main-div .login-section .top-article .login-form .inputs-div .input {
+  width: 100%;
+  background: none;
+  border: solid 1.5px #333333;
+  border-radius: 5px;
+  padding: 0.5rem 1rem;
+  color: #ececec;
+  font-size: 1.25rem;
+  font-family: "Open Sans", sans-serif;
+}
+.login-main-div .login-section .top-article .login-form .login-button {
+  width: 100%;
+  padding: 1rem;
+  color: #ececec;
+  font-size: 1.25rem;
+  font-family: "Open Sans", sans-serif;
+  background-color: #333333;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: ease 0.3s;
+}
+.login-main-div .login-section .top-article .login-form .login-button:hover {
+  background-color: #555555;
+  transition: ease 0.3s;
+}
+.login-main-div .login-section .bottom-article {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  padding: 0rem 2.5rem;
+  height: 10vh;
+  border-top: solid 1px #333333;
+}
+.login-main-div .login-section .bottom-article p {
+  color: #ececec;
+  font-size: 1.25rem;
+  font-family: "Open Sans", sans-serif;
+  text-align: center;
+}
+.login-main-div .login-section .bottom-article p .goto-signup {
+  color: violet;
+  font-size: 1.25rem;
+  font-family: "Open Sans", sans-serif;
+  text-align: center;
+  border: none;
+  background: none;
+  margin-left: 1rem;
+  cursor: pointer;
+}
+.login-main-div .login-section .bottom-article p .goto-signup:hover {
+  text-decoration: underline solid 1px violet;
+}
+
+.home-screen {
+  display: flex;
+}
+.home-screen .left-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5rem;
+  padding: 2.5rem;
+  width: 50vw;
+  height: 100vh;
+  background-color: #101010;
+}
+.home-screen .left-section .balance-article {
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  height: 40%;
+  background-color: #090909;
+  border-radius: 5px;
+}
+.home-screen .left-section .balance-article .balance-title {
+  color: #ececec;
+  font-size: 2rem;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 400;
+  border-bottom: solid 1px #333333;
+  padding: 1rem 0rem;
+}
+.home-screen .left-section .balance-article .balance-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5rem;
+  width: 100%;
+  height: 100%;
+}
+.home-screen .left-section .balance-article .balance-content .value {
+  color: #ff0000;
+  font-size: 5rem;
+}
+.home-screen .left-section .balance-article .balance-content .text {
+  color: #ff0000;
+  font-size: 1.5rem;
+}
+.home-screen .left-section .friends-article {
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  height: 40%;
+  background-color: #090909;
+  border-radius: 5px;
+}
+.home-screen .left-section .friends-article .title-div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: solid 1px #333333;
+  padding: 1rem 1.5rem;
+}
+.home-screen .left-section .friends-article .title-div .friends-title {
+  color: #ececec;
+  font-size: 1.75rem;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 400;
+}
+.home-screen .left-section .friends-article .title-div .add-friend-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  color: #ececec;
+  font-size: 1.25rem;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 400;
+  background: none;
+  border: none;
+}
+.home-screen .left-section .friends-article .title-div .add-friend-button img {
+  height: 1.75rem;
+}
+.home-screen .left-section .friends-article .list-div {
+  width: 100%;
+  height: 100%;
+  padding: 1rem 2rem;
+}
+.home-screen .left-section .friends-article .list-div ul {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: start;
+  gap: 1rem;
+}
+.home-screen .left-section .friends-article .list-div ul li {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  gap: 0.5rem;
+}
+.home-screen .left-section .friends-article .list-div ul li .user-img {
+  height: 1.5rem;
+}
+.home-screen .right-section {
+  width: 50vw;
+  display: flex;
+  flex-direction: column;
+  padding: 0rem 1.5rem;
+}
+.home-screen .right-section .title-article {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: solid 1px #333333;
+  padding: 1rem 0rem;
+}
+.home-screen .right-section .title-article .projects-title {
+  color: #ececec;
+  font-size: 2rem;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 400;
+}
+.home-screen .right-section .title-article .create-project-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  color: #ececec;
+  font-size: 1.25rem;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 400;
+  padding: 0.5rem 1rem;
+  background-color: #0c0c0c;
+  border: none;
+  border-radius: 5px;
+}
+.home-screen .right-section .title-article .create-project-button img {
+  height: 1.5rem;
+}
+.home-screen .right-section .projects-list-article {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: start;
+  gap: 2rem;
+  padding: 2rem 0rem;
+}
+.home-screen .right-section .projects-list-article .project-div {
+  width: 95%;
+  height: 3.5rem;
+  background-color: #101010;
+  border-radius: 5px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-decoration: none;
+  padding: 0rem 1rem;
+}
+.home-screen .right-section .projects-list-article .project-div .project-name {
+  color: #ececec;
+  font-size: 1.75rem;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 400;
+  font-style: italic;
+}
+.home-screen .right-section .projects-list-article .project-div .project-balance {
+  font-size: 1.25rem;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 400;
+}
+
+.owes {
+  color: #ff0000;
+}
+
+.lends {
+  color: #00ff00;
+}
+
+.create-project-screen {
+  display: flex;
+  height: 115vh;
+}
+.create-project-screen .left-section {
+  display: flex;
+  flex-direction: column;
+  width: 50vw;
+  background-color: #101010;
+  padding: 3rem 2.5rem;
+}
+.create-project-screen .left-section .title {
+  width: 100%;
+  color: #ececec;
+  font-size: 2.5rem;
+  font-family: "Open Sans", sans-serif;
+  text-align: start;
+  border-bottom: solid 1px #333333;
+  padding: 0rem 0rem 1rem 0rem;
+}
+.create-project-screen .left-section .create-project-form {
+  display: flex;
+  flex-direction: column;
+  gap: 5rem;
+}
+.create-project-screen .left-section .create-project-form .inputs-div {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  padding: 3rem 0rem;
+}
+.create-project-screen .left-section .create-project-form .inputs-div .input {
+  width: 96.5%;
+  background-color: #090909;
+  color: #ececec;
+  font-size: 1.25rem;
+  font-family: "Open Sans", sans-serif;
+  border: none;
+  border-radius: 5px;
+  padding: 1rem;
+}
+.create-project-screen .left-section .create-project-form .inputs-div .date-inputs-div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.create-project-screen .left-section .create-project-form .inputs-div .date-inputs-div .input {
+  width: 45%;
+}
+.create-project-screen .left-section .create-project-form .inputs-div .textarea {
+  width: 96.5%;
+  height: 10rem;
+  background-color: #090909;
+  color: #ececec;
+  font-size: 1.25rem;
+  font-family: "Open Sans", sans-serif;
+  border: none;
+  border-radius: 5px;
+  padding: 1rem;
+  resize: none;
+}
+.create-project-screen .left-section .create-project-form .create-project-button {
+  background-color: #010101;
+  color: #ececec;
+  font-size: 1.25rem;
+  font-family: "Open Sans", sans-serif;
+  border: none;
+  border-radius: 5px;
+  padding: 1rem;
+}
+.create-project-screen .right-section {
+  display: flex;
+  flex-direction: column;
+  width: 50vw;
+  padding: 3rem 2.5rem;
+}
+.create-project-screen .right-section .title {
+  width: 100%;
+  color: #ececec;
+  font-size: 2.5rem;
+  font-family: "Open Sans", sans-serif;
+  text-align: start;
+  border-bottom: solid 1px #333333;
+  padding: 0rem 0rem 1rem 0rem;
+}
+.create-project-screen .right-section .members-article {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+.create-project-screen .right-section .members-article .current-members-ul {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: 100%;
+  padding: 2rem 1rem;
+}
+.create-project-screen .right-section .members-article .current-members-ul .member {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  gap: 1rem;
+}
+.create-project-screen .right-section .members-article .current-members-ul .member .user-img {
+  height: 1.5rem;
+}
+.create-project-screen .right-section .members-article .add-member-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  background-color: #090909;
+  color: #ececec;
+  font-size: 1.25rem;
+  font-family: "Open Sans", sans-serif;
+  border: none;
+  border-radius: 5px;
+  padding: 1rem;
+}
+.create-project-screen .right-section .members-article .add-member-button img {
+  height: 1.5rem;
+}
+
+.manage-project-screen {
+  display: flex;
+}
+.manage-project-screen .left-section {
+  display: flex;
+  flex-direction: column;
+  width: 50vw;
+  height: 115vh;
+}
+.manage-project-screen .left-section .project-header-article {
+  height: 30vh;
+  background-color: #0c0c0c;
+  padding: 0rem 1.5rem;
+}
+.manage-project-screen .left-section .project-header-article .project-title-div {
+  height: 35%;
+}
+.manage-project-screen .left-section .project-header-article .project-title-div h2 {
+  color: #ececec;
+  font-size: 4rem;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 400;
+  text-align: start;
+  padding-top: 1rem;
+  border-bottom: solid 1px #333333;
+}
+.manage-project-screen .left-section .project-header-article .project-balance-div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 65%;
+}
+.manage-project-screen .left-section .project-header-article .project-balance-div p {
+  width: 100%;
+  color: #ff0000;
+  font-size: 1.5rem;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 400;
+  text-align: start;
+}
+.manage-project-screen .left-section .project-bills-article {
+  height: 85vh;
+  background-color: #0f0f0f;
+  padding: 0rem 2rem;
+}
+.manage-project-screen .left-section .project-bills-article .bills-title-div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 0rem;
+  border-bottom: solid 1px #333333;
+}
+.manage-project-screen .left-section .project-bills-article .bills-title-div h2 {
+  color: #ececec;
+  font-size: 2.5rem;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 400;
+}
+.manage-project-screen .left-section .project-bills-article .bills-title-div .add-bill-button {
+  color: #ececec;
+  font-size: 1.5rem;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 400;
+  background-color: #090909;
+  border: none;
+  border-radius: 5px;
+  padding: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+.manage-project-screen .left-section .project-bills-article .bills-title-div .add-bill-button img {
+  height: 1.5rem;
+}
+.manage-project-screen .left-section .project-bills-article .bills-div {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+  gap: 2rem;
+  padding: 2rem 1rem;
+}
+.manage-project-screen .left-section .project-bills-article .bills-div .bill {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  background-color: #222222;
+  padding: 1rem;
+  border-radius: 5px;
+}
+.manage-project-screen .left-section .project-bills-article .bills-div .bill .date-div {
+  width: 7.5%;
+}
+.manage-project-screen .left-section .project-bills-article .bills-div .bill .date-div .month {
+  color: #888888;
+  font-size: 1.5rem;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 400;
+}
+.manage-project-screen .left-section .project-bills-article .bills-div .bill .date-div .day {
+  color: #888888;
+  font-size: 2.5rem;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 400;
+}
+.manage-project-screen .left-section .project-bills-article .bills-div .bill .content-div {
+  width: 60%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: start;
+  padding: 0rem 1rem;
+}
+.manage-project-screen .left-section .project-bills-article .bills-div .bill .content-div .bill-name {
+  color: #ececec;
+  font-size: 2rem;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 400;
+}
+.manage-project-screen .left-section .project-bills-article .bills-div .bill .content-div .bill-payment {
+  color: #ececec;
+  font-size: 1.5rem;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 400;
+}
+.manage-project-screen .left-section .project-bills-article .bills-div .bill .balance-div {
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: end;
+}
+.manage-project-screen .left-section .project-bills-article .bills-div .bill .balance-div .balance-text {
+  color: #ececec;
+  font-size: 1.25rem;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 400;
+}
+.manage-project-screen .left-section .project-bills-article .bills-div .bill .balance-div .balance-price {
+  color: #ececec;
+  font-size: 1.75rem;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 400;
+}
+.manage-project-screen .left-section .project-bills-article .bills-div .bill .balance-div .owes {
+  color: #ff0000;
+}
+.manage-project-screen .left-section .project-bills-article .bills-div .bill .balance-div .lends {
+  color: #00ff00;
+}
+.manage-project-screen .right-section {
+  display: flex;
+  flex-direction: column;
+  width: 50vw;
+  height: 115vh;
+}
+.manage-project-screen .right-section .buttons-info-article {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 10vh;
+  padding: 1rem 0rem;
+  margin: 0rem 1.5rem;
+  border-bottom: solid 1px #333333;
+}
+.manage-project-screen .right-section .buttons-info-article .info-button {
+  color: #ececec;
+  font-size: 1.25rem;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 400;
+  background-color: #090909;
+  padding: 1rem 1.5rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: ease 0.3s;
+}
+.manage-project-screen .right-section .buttons-info-article .info-button:hover {
+  background-color: #d0cdea;
+  color: #111111;
+  transition: ease 0.3s;
+}
+.manage-project-screen .right-section .buttons-info-article .active {
+  background-color: #766ac1;
+}
+
+.project-resume-component {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+  gap: 2.5rem;
+  width: 50vw;
+  height: 100vh;
+}
+.project-resume-component .resume-data-div {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: start;
+  gap: 0.5rem;
+  padding: 2rem 0rem;
+  margin: 0rem 1.5rem;
+  width: 90%;
+}
+.project-resume-component .resume-data-div .title {
+  color: #ececec;
+  font-size: 2rem;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 400;
+  text-decoration: underline solid 1.75px #ececec;
+}
+.project-resume-component .resume-data-div .price {
+  color: #ececec;
+  font-size: 1.75rem;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 400;
+}
+
+.project-bills-component {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: start;
+  gap: 2rem;
+  height: 100vh;
+  width: 90%;
+}
+.project-bills-component .member-bills-div {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: start;
+  gap: 1.25rem;
+  padding: 2.5rem 2rem;
+}
+.project-bills-component .member-bills-div .member-balance-overall {
+  color: #ececec;
+  font-size: 1.75rem;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 400;
+}
+.project-bills-component .member-bills-div .member-balances {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: start;
+  gap: 1rem;
+  padding-left: 2rem;
+  margin-left: 0.5rem;
+  border-left: solid 1px #333333;
+}
+.project-bills-component .member-bills-div .member-balances .balance {
+  color: #ececec;
+  font-size: 1.5rem;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 400;
+  list-style-type: none;
+}
+
+.project-payment-component {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+  height: 100vh;
+}
+.project-payment-component .member-div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 90%;
+  padding: 1rem;
+}
+.project-payment-component .member-div .member-name {
+  color: #ececec;
+  font-size: 1.5rem;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 400;
+}
+.project-payment-component .member-div .member-balance {
+  color: #ff0000;
+  font-size: 1.5rem;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 400;
+}
+
+.add-friend-component {
+  position: fixed;
+  top: 20vh;
+  left: 25vw;
+  height: 60vh;
+  width: 50vw;
+  background-color: #090909;
+  border-radius: 2.5px;
+  z-index: 2;
+}
+.add-friend-component .title-section {
+  padding: 1rem;
+  border-bottom: solid 1px #333333;
+}
+.add-friend-component .title-section h4 {
+  color: #ececec;
+  font-size: 2.5rem;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 400;
+}
+.add-friend-component .form-section {
+  padding: 2rem;
+}
+.add-friend-component .form-section .inputs-article {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+  gap: 1.25rem;
+}
+.add-friend-component .form-section .inputs-article input {
+  color: #ececec;
+  font-size: 1.25rem;
+  font-family: "Open Sans", sans-serif;
+  width: 90%;
+  padding: 1rem;
+  background-color: #131313;
+  border-radius: 5px;
+  border: none;
+}
+.add-friend-component .form-section .buttons-article {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2rem;
+}
+.add-friend-component .form-section .buttons-article .cancel-button {
+  color: #ececec;
+  font-size: 1.25rem;
+  font-family: "Open Sans", sans-serif;
+  width: 45%;
+  padding: 1rem 1.5rem;
+  border: none;
+  border-radius: 2.5px;
+  background-color: #0c0c0c;
+  transition: ease 0.3s;
+  cursor: pointer;
+}
+.add-friend-component .form-section .buttons-article .cancel-button:hover {
+  background-color: #151515;
+  transition: ease 0.3s;
+}
+.add-friend-component .form-section .buttons-article .add-button {
+  color: #111111;
+  font-size: 1.25rem;
+  font-family: "Open Sans", sans-serif;
+  width: 45%;
+  padding: 1rem 1.5rem;
+  border: none;
+  border-radius: 2.5px;
+  background-color: #d0cdea;
+  transition: ease 0.3s;
+  cursor: pointer;
+}
+.add-friend-component .form-section .buttons-article .add-button:hover {
+  color: #ececec;
+  background-color: #766ac1;
+  transition: ease 0.3s;
+}
+
+.add-bill-component {
+  position: fixed;
+  top: 5vh;
+  left: 25vw;
+  height: 90vh;
+  width: 50vw;
+  background-color: #090909;
+  border-radius: 2.5px;
+  z-index: 2;
+}
+.add-bill-component .title-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+  padding: 1rem;
+  border-bottom: solid 1px #333333;
+}
+.add-bill-component .title-section h4 {
+  color: #ececec;
+  font-size: 2.5rem;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 400;
+}
+.add-bill-component .title-section h5 {
+  color: #ececec;
+  font-size: 1.75rem;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 400;
+}
+.add-bill-component .bottom-section {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  padding: 2rem;
+}
+.add-bill-component .bottom-section .form-article {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+  gap: 1rem;
+}
+.add-bill-component .bottom-section .form-article input {
+  color: #ececec;
+  font-size: 1.25rem;
+  font-family: "Open Sans", sans-serif;
+  width: 90%;
+  padding: 1rem;
+  background-color: #131313;
+  border-radius: 5px;
+  border: none;
+}
+.add-bill-component .bottom-section .form-article .price-div {
+  width: 92.5%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.add-bill-component .bottom-section .payment-article {
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: start;
+  gap: 1rem;
+  padding: 2rem;
+}
+.add-bill-component .bottom-section .payment-article div {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  gap: 1rem;
+}
+.add-bill-component .bottom-section .payment-article div button {
+  color: #ececec;
+  font-size: 1.25rem;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 400;
+  background-color: #131313;
+  border: none;
+  border-radius: 5px;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  transition: ease 0.3s;
+}
+.add-bill-component .bottom-section .payment-article div button:hover {
+  background-color: #151515;
+  transition: ease 0.3s;
+}
+.add-bill-component .bottom-section .buttons-article {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+.add-bill-component .bottom-section .buttons-article button {
+  width: 90%;
+  color: #ececec;
+  font-size: 1.25rem;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 400;
+  background-color: #131313;
+  border: none;
+  border-radius: 5px;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  transition: ease 0.3s;
+}
+.add-bill-component .bottom-section .buttons-article .attach-button {
+  background-color: #090909;
+  border: solid 1px #333333;
+}
+.add-bill-component .bottom-section .buttons-article .attach-button:hover {
+  background-color: #151515;
+  transition: ease 0.3s;
+}
+.add-bill-component .bottom-section .buttons-article .save-button {
+  color: #111111;
+  background-color: #d0cdea;
+}
+.add-bill-component .bottom-section .buttons-article .save-button:hover {
+  color: #ececec;
+  background-color: #766ac1;
+  transition: ease 0.3s;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  font-size: 62.5%;
+}
+
+.App {
+  position: relative;
+}
+
+body {
+  background-color: #181818;
+}
+
+p {
+  color: #ececec;
+  font-size: 1.75rem;
+  font-family: "Open Sans", sans-serif;
+}
+
+.opacator {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  background-color: rgba(0, 0, 0, 0.8);
+  z-index: 1;
+}
+
+/*# sourceMappingURL=index.css.map */

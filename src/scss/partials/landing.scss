@@ -1,0 +1,40 @@
+.landing-section {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    gap: 2.5rem;
+    padding: 5rem 10rem;
+    h2 {
+        color: #ececec;
+        font-size: 3rem;
+        font-weight: bold;
+        font-family: "Open Sans", sans-serif;
+        text-decoration: underline solid 2px #ececec;
+    }
+    article {
+        display: flex;
+        flex-direction: column;
+        gap: 4rem;
+        div {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            p {
+                color: #ececec;
+                font-size: 1.5rem;
+                font-family: "Open Sans", sans-serif;
+                text-align: justify;
+                width: 80%;
+            }
+            img {
+                height: 7.5rem;
+            }
+        }
+    }
+}
+.top-section {
+    margin-top: 2.5rem;
+}
+.bottom-section {
+    margin-bottom: 5rem;
+}

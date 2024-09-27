@@ -1,0 +1,287 @@
+.manage-project-screen {
+    display: flex;
+    .left-section {
+        display: flex;
+        flex-direction: column;
+        width: 50vw;
+        height: 115vh;
+        .project-header-article {
+            height: 30vh;
+            background-color: #0c0c0c;
+            padding: 0rem 1.5rem;
+            .project-title-div {
+                height: 35%;
+                h2 {
+                    color: #ececec;
+                    font-size: 4rem;
+                    font-family: "Open Sans", sans-serif;
+                    font-weight: 400;
+                    text-align: start;
+                    padding-top: 1rem;
+                    border-bottom: solid 1px #333333;
+                }
+            }
+            .project-balance-div {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 65%;
+                p {
+                    width: 100%;
+                    color: #ff0000;
+                    font-size: 1.5rem;
+                    font-family: "Open Sans", sans-serif;
+                    font-weight: 400;
+                    text-align: start;
+                }
+            }
+        }
+        .project-bills-article {
+            height: 85vh;
+            background-color: #0f0f0f;
+            padding: 0rem 2rem;
+            .bills-title-div {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 1rem 0rem;
+                border-bottom: solid 1px #333333;
+                h2 {
+                    color: #ececec;
+                    font-size: 2.5rem;
+                    font-family: "Open Sans", sans-serif;
+                    font-weight: 400;
+                }
+                .add-bill-button {
+                    color: #ececec;
+                    font-size: 1.5rem;
+                    font-family: "Open Sans", sans-serif;
+                    font-weight: 400;
+                    background-color: #090909;
+                    border: none;
+                    border-radius: 5px;
+                    padding: 1rem;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    gap: 1rem;
+                    img {
+                        height: 1.5rem;
+                    }
+                }
+            }
+            .bills-div {
+                display: flex;
+                flex-direction: column;
+                justify-content: start;
+                align-items: center;
+                gap: 2rem;
+                padding: 2rem 1rem;
+                .bill {
+                    width: 100%;
+                    display: flex;
+                    // justify-content: space-between;
+                    align-items: center;
+                    background-color: #222222;
+                    padding: 1rem;
+                    border-radius: 5px;
+                    .date-div {
+                        width: 7.5%;
+                        .month {
+                            color: #888888;
+                            font-size: 1.5rem;
+                            font-family: "Open Sans", sans-serif;
+                            font-weight: 400;
+                        }
+                        .day {
+                            color: #888888;
+                            font-size: 2.5rem;
+                            font-family: "Open Sans", sans-serif;
+                            font-weight: 400;
+                        }
+                    }
+                    .content-div {
+                        width: 60%;
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: center;
+                        align-items: start;
+                        padding: 0rem 1rem;
+                        .bill-name {
+                            color: #ececec;
+                            font-size: 2rem;
+                            font-family: "Open Sans", sans-serif;
+                            font-weight: 400;
+                        }
+                        .bill-payment {
+                            color: #ececec;
+                            font-size: 1.5rem;
+                            font-family: "Open Sans", sans-serif;
+                            font-weight: 400;
+                        }
+                    }
+                    .balance-div {
+                        width: 30%;
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: center;
+                        align-items: end;
+                        .balance-text {
+                            color: #ececec;
+                            font-size: 1.25rem;
+                            font-family: "Open Sans", sans-serif;
+                            font-weight: 400;
+                        }
+                        .balance-price {
+                            color: #ececec;
+                            font-size: 1.75rem;
+                            font-family: "Open Sans", sans-serif;
+                            font-weight: 400;
+                        }
+                        .owes {
+                            color: #ff0000;
+                        }
+                        .lends {
+                            color: #00ff00;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .right-section {
+        display: flex;
+        flex-direction: column;
+        width: 50vw;
+        height: 115vh;
+        .buttons-info-article {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            height: 10vh;
+            padding: 1rem 0rem;
+            margin: 0rem 1.5rem;
+            border-bottom: solid 1px #333333;
+            .info-button {
+                color: #ececec;
+                font-size: 1.25rem;
+                font-family: "Open Sans", sans-serif;
+                font-weight: 400;
+                background-color: #090909;
+                padding: 1rem 1.5rem;
+                border: none;
+                border-radius: 5px;
+                cursor: pointer;
+                transition: ease .3s;
+                &:hover {
+                    background-color: #d0cdea;
+                    color: #111111;
+                    transition: ease .3s;
+                }
+            }
+            .active {
+                background-color: #766ac1;
+            }
+        }
+    }
+}
+
+// PROJECT INFO COMPONENTS
+.project-resume-component {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+    gap: 2.5rem;
+    width: 50vw;
+    height: 100vh;
+    .resume-data-div {
+        display: flex;
+        flex-direction: column;
+        justify-content: start;
+        align-items: start;
+        gap: .5rem;
+        padding: 2rem 0rem;
+        margin: 0rem 1.5rem;
+        width: 90%;
+        .title {
+            color: #ececec;
+            font-size: 2rem;
+            font-family: "Open Sans", sans-serif;
+            font-weight: 400;
+            text-decoration: underline solid 1.75px #ececec;
+        }
+        .price {
+            color: #ececec;
+            font-size: 1.75rem;
+            font-family: "Open Sans", sans-serif;
+            font-weight: 400;
+        }
+    }
+}
+.project-bills-component {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: start;
+    gap: 2rem;
+    height: 100vh;
+    width: 90%;
+    .member-bills-div {
+        display: flex;
+        flex-direction: column;
+        justify-content: start;
+        align-items: start;
+        gap: 1.25rem;
+        padding: 2.5rem 2rem;
+        .member-balance-overall {
+            color: #ececec;
+            font-size: 1.75rem;
+            font-family: "Open Sans", sans-serif;
+            font-weight: 400;
+        }
+        .member-balances {
+            display: flex;
+            flex-direction: column;
+            justify-content: start;
+            align-items: start;
+            gap: 1rem;
+            padding-left: 2rem;
+            margin-left: .5rem;
+            border-left: solid 1px #333333;
+            .balance {
+                color: #ececec;
+                font-size: 1.5rem;
+                font-family: "Open Sans", sans-serif;
+                font-weight: 400;
+                list-style-type: none;
+            }
+        }
+    }
+}
+.project-payment-component {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+    height: 100vh;
+    .member-div {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 90%;
+        padding: 1rem;
+        .member-name {
+            color: #ececec;
+            font-size: 1.5rem;
+            font-family: "Open Sans", sans-serif;
+            font-weight: 400;
+        }
+        .member-balance {
+            color: #ff0000;
+            font-size: 1.5rem;
+            font-family: "Open Sans", sans-serif;
+            font-weight: 400;
+        }
+    }
+}

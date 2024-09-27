@@ -1,0 +1,122 @@
+.create-project-screen {
+    display: flex;
+    height: 115vh;
+    .left-section {
+        display: flex;
+        flex-direction: column;
+        width: 50vw;
+        background-color: #101010;
+        padding: 3rem 2.5rem;
+        .title {
+            width: 100%;
+            color: #ececec;
+            font-size: 2.5rem;
+            font-family: "Open Sans", sans-serif;
+            text-align: start;
+            border-bottom: solid 1px #333333;
+            padding: 0rem 0rem 1rem 0rem;
+        }
+        .create-project-form {
+            display: flex;
+            flex-direction: column;
+            gap: 5rem;
+            .inputs-div {
+                display: flex;
+                flex-direction: column;
+                gap: 2rem;
+                padding: 3rem 0rem;
+                .input {
+                    width: 96.5%;
+                    background-color: #090909;
+                    color: #ececec;
+                    font-size: 1.25rem;
+                    font-family: "Open Sans", sans-serif;
+                    border: none;
+                    border-radius: 5px;                    
+                    padding: 1rem;
+                }
+                .date-inputs-div {
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    .input {
+                        width: 45%;
+                    }
+                }
+                .textarea {
+                    width: 96.5%;
+                    height: 10rem;
+                    background-color: #090909;
+                    color: #ececec;
+                    font-size: 1.25rem;
+                    font-family: "Open Sans", sans-serif;
+                    border: none;
+                    border-radius: 5px;                    
+                    padding: 1rem;
+                    resize: none;
+                }
+            }
+            .create-project-button {
+                background-color: #010101;
+                color: #ececec;
+                font-size: 1.25rem;
+                font-family: "Open Sans", sans-serif;
+                border: none;
+                border-radius: 5px;                    
+                padding: 1rem;
+            }
+        }
+    }
+    .right-section {
+        display: flex;
+        flex-direction: column;
+        width: 50vw;
+        padding: 3rem 2.5rem;
+        .title {
+            width: 100%;
+            color: #ececec;
+            font-size: 2.5rem;
+            font-family: "Open Sans", sans-serif;
+            text-align: start;
+            border-bottom: solid 1px #333333;
+            padding: 0rem 0rem 1rem 0rem;
+        }
+        .members-article {
+            display: flex;
+            flex-direction: column;
+            gap: 3rem;
+            .current-members-ul {
+                display: flex;
+                flex-direction: column;
+                gap: 1rem;
+                width: 100%;
+                padding: 2rem 1rem;
+                .member {
+                    display: flex;
+                    justify-content: start;
+                    align-items: center;
+                    gap: 1rem;
+                    .user-img {
+                        height: 1.5rem;
+                    }
+                }
+            }
+            .add-member-button {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                gap: 1rem;
+                background-color: #090909;
+                color: #ececec;
+                font-size: 1.25rem;
+                font-family: "Open Sans", sans-serif;
+                border: none;
+                border-radius: 5px;                    
+                padding: 1rem;
+                img {
+                    height: 1.5rem;
+                }
+            }
+        }
+    }
+}
