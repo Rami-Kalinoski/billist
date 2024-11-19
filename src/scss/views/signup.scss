@@ -1,0 +1,145 @@
+.signup-main {
+    height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .form {
+        height: 70vh;
+        width: 20vw;
+        background-color: #222222;
+        box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.9);
+        border-radius: 15px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+        padding: 0rem 3rem;
+        .title {
+            font-size: 2rem;
+            font-family: "Lora", serif;
+            font-weight: 800;
+            color: #ececec;
+            text-decoration: none;
+            text-align: center;
+        }
+        .inputs-div {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            .input-div {
+                display: flex;
+                flex-direction: column;
+                justify-content: start;
+                align-items: start;
+                gap: 1rem;
+                .label {
+                    font-size: 1.5rem;
+                    font-family: "Manrope", serif;
+                    font-weight: 500;
+                    color: #ececec;
+                    text-decoration: none;
+                    text-align: center;
+                }
+                .input {
+                    width: 100%;
+                    background-color: #444444;
+                    border: solid 1px #111111;
+                    border-radius: 5px;
+                    font-size: 1.5rem;
+                    font-family: "Manrope", serif;
+                    font-weight: 500;
+                    color: #ececec;
+                    text-decoration: none;
+                    text-align: start;
+                    padding: .5rem 0rem;
+                }
+            }
+        }
+        .btns-div {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 1.5rem;
+            .btn {
+                width: 100%;
+                border: none;
+                border-radius: 5px;
+                font-size: 1.75rem;
+                font-family: "Manrope", serif;
+                font-weight: 600;
+                color: #ececec;
+                text-decoration: none;
+                text-align: center;
+                padding: .5rem 0rem;
+                transition: ease .3s;
+                cursor: pointer;
+            }
+            .ingresar-btn {
+                background-color: #a15ec5;
+                &:hover {
+                    background-color: #c267f2;
+                    transition: ease .3s;
+                }
+            }
+            .limpiar-btn {
+                background-color: #111111;
+                &:hover {
+                    background-color: #151515;
+                    transition: ease .3s;
+                }
+            }
+        }
+        .anchors-div {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: start;
+            align-items: start;
+            gap: 1rem;
+            .anchor {
+                font-size: 1.5rem;
+                font-family: "Manrope", serif;
+                font-weight: 600;
+                color: #ececec;
+                text-decoration: none;
+                text-align: start;
+                &:hover {
+                    color: #ec9dec;
+                    text-decoration: solid 1px #ec9dec;
+                }
+            }
+        }
+    }
+}
+
+// RESPONSIVE DESIGN --------------------------------------------------------------------------------------------------------------------------------
+@media (max-width: 1439px) {
+    .signup-main {
+        .form {
+            width: 50vw;
+        }
+    }
+}
+
+@media (max-width: 1023px) {
+}
+
+@media (max-width: 767px) {
+    .signup-main {
+        .form {
+            width: 70vw;
+        }
+    }
+}
+
+@media (max-width: 550px) {
+}
+
+@media (max-width: 479px) {
+}
+
+@media (max-width: 365px) {
+}
