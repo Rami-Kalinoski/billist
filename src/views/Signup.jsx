@@ -1,7 +1,9 @@
-import React, { useRef } from 'react'
-import { Link } from 'react-router-dom'
+import React, { useState, useRef } from 'react'
+import { Link, useNavigate } from 'react-router-dom'
+import signup from '../api/signup';
 
 export default function Signup() {
+    // botón "limpiar"
     const usernameInput = useRef(null);
     const emailInput = useRef(null);
     const passwordInput = useRef(null);
@@ -13,30 +15,53 @@ export default function Signup() {
         if (confirmPasswordInput.current) {confirmPasswordInput.current.value = ''};
     }
 
+    // botón "registrarse"
+    const [username, setUsername] = useState('');
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const [confirmPassword, setConfirmPassword] = useState('');
+    const [error, setError] = useState('');
+    const navigate = useNavigate();
+
+    const handleUsernameChange = (e) => { setUsername(e.target.value); };
+    const handleEmailChange = (e) => { setEmail(e.target.value); };
+    const handlePasswordChange = (e) => { setPassword(e.target.value); };
+    const handleConfirmPasswordChange = (e) => { setConfirmPassword(e.target.value); };
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        let response = await signup(username, email, password, confirmPassword);
+        if (response.status === 200) {
+            sessionStorage.setItem('access-token', response.token);
+            navigate('/dashboard');
+        } else {
+            setError(response.message);
+        }
+    }
+
     return (
         <main className='signup-main'>
-            <form action="" className='form'>
+            <form action="" className='form' onSubmit={handleSubmit}>
                 <h2 className='title'>Registrarse</h2>
                 <div className='inputs-div'>
                     <div className='input-div'>
                         <label htmlFor="signup_username-input" className='label'>Nombre de usuario</label>
-                        <input type="text" name="username" id="signup_username-input" className='input' ref={usernameInput} />
+                        <input type="text" name="username" id="signup_username-input" className='input' ref={usernameInput} onChange={handleUsernameChange} />
                     </div>
                     <div className='input-div'>
                         <label htmlFor="signup_email-input" className='label'>Correo electrónico</label>
-                        <input type="email" name="email" id="signup_email-input" className='input' ref={emailInput} />
+                        <input type="email" name="email" id="signup_email-input" className='input' ref={emailInput} onChange={handleEmailChange} />
                     </div>
                     <div className='input-div'>
                         <label htmlFor="signup_password-input" className='label'>Contraseña</label>
-                        <input type="password" name="password" id="signup_password-input" className='input' ref={passwordInput} />
+                        <input type="password" name="password" id="signup_password-input" className='input' ref={passwordInput} onChange={handlePasswordChange} />
                     </div>
                     <div className='input-div'>
                         <label htmlFor="signup_confirm-password-input" className='label'>Confirmar contraseña</label>
-                        <input type="password" name="confirm-password" id="signup_confirm-password-input" className='input' ref={confirmPasswordInput} />
+                        <input type="password" name="confirm-password" id="signup_confirm-password-input" className='input' ref={confirmPasswordInput} onChange={handleConfirmPasswordChange} />
                     </div>
                 </div>
                 <div className='btns-div'>
-                    <button type='button' className='btn ingresar-btn'>Registrarse</button>
+                    <button type='submit' className='btn ingresar-btn'>Registrarse</button>
                     <button type='button' className='btn limpiar-btn' onClick={handleClear}>Limpiar</button>
                 </div>
                 <div className='anchors-div'>

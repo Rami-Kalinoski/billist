@@ -1,8 +1,9 @@
-import React, { useRef } from 'react'
+import React, { useState, useRef } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
+import login from '../api/login';
 
 export default function Login() {
-    const navigate = useNavigate();
+    // botón "limpiar"
     const emailInput = useRef(null);
     const passwordInput = useRef(null);
     const handleClear = () => {
@@ -10,8 +11,23 @@ export default function Login() {
         if (passwordInput.current) {passwordInput.current.value = ''};
     }
 
-    const handleSubmit = () => {
-        navigate('/dashboard');
+    // botón "ingresar"
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const [error, setError] = useState('');
+    const navigate = useNavigate();
+
+    const handleEmailChange = (e) => { setEmail(e.target.value); };
+    const handlePasswordChange = (e) => { setPassword(e.target.value); };
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        let response = await login(email, password);
+        if (response.status === 200) {
+            sessionStorage.setItem('access-token', response.token);
+            navigate('/dashboard');
+        } else {
+            setError(response.message);
+        }
     }
 
     return (
@@ -21,11 +37,11 @@ export default function Login() {
                 <div className='inputs-div'>
                     <div className='input-div'>
                         <label htmlFor="login_email-input" className='label'>Correo electrónico</label>
-                        <input type="email" name="email" id="login_email-input" className='input' ref={emailInput} />
+                        <input type="email" name="email" id="login_email-input" className='input' ref={emailInput} onChange={handleEmailChange} />
                     </div>
                     <div className='input-div'>
                         <label htmlFor="login_password-input" className='label'>Contraseña</label>
-                        <input type="password" name="password" id="login_password-input" className='input' ref={passwordInput} />
+                        <input type="password" name="password" id="login_password-input" className='input' ref={passwordInput} onChange={handlePasswordChange} />
                     </div>
                 </div>
                 <div className='btns-div'>

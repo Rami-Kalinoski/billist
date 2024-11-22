@@ -1,11 +1,11 @@
 .login-main {
-  height: 80vh;
+  height: 50vw;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 .login-main .form {
-  height: 60vh;
+  height: 40vw;
   width: 20vw;
   background-color: #222222;
   box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.9);
@@ -126,13 +126,13 @@
   }
 }
 .signup-main {
-  height: 80vh;
+  height: 60vw;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 .signup-main .form {
-  height: 70vh;
+  height: 50vw;
   width: 20vw;
   background-color: #222222;
   box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.9);
@@ -327,7 +327,7 @@
   text-decoration: none;
   text-align: center;
 }
-.landing-main .bottom-section .article .p {
+.landing-main .bottom-section .article .text {
   font-size: 1.75rem;
   text-align: center;
 }
@@ -354,6 +354,85 @@
   border-right: solid 1px #333333;
 }
 
+@media (max-width: 1439px) {
+  .landing-main .top-section .article {
+    flex-direction: column;
+  }
+  .landing-main .top-section .article .info-card {
+    height: 40vh;
+    width: 30vw;
+  }
+  .landing-main .bottom-section .article {
+    height: 50vh;
+    padding: 0rem 2.5rem 5rem 2.5rem;
+  }
+}
+@media (max-width: 1023px) {
+  .landing-main .top-section .article {
+    flex-direction: column;
+  }
+  .landing-main .top-section .article .info-card {
+    height: 35vw;
+  }
+  .landing-main .top-section .article .info-card .text {
+    font-size: 1.5rem;
+  }
+  .landing-main .bottom-section .article .title {
+    font-size: 3rem;
+  }
+  .landing-main .bottom-section .article .text {
+    font-size: 1.5rem;
+  }
+  .landing-main .bottom-section .article .btn {
+    font-size: 1.6rem;
+  }
+}
+@media (max-width: 767px) {
+  .landing-main .top-section {
+    flex-direction: column;
+  }
+  .landing-main .top-section .article .info-card {
+    height: 40vh;
+    width: 60%;
+  }
+  .landing-main .bottom-section {
+    flex-direction: column;
+  }
+  .landing-main .bottom-section .article {
+    width: 100%;
+    padding: 5rem 0rem;
+  }
+  .landing-main .bottom-section .article .text {
+    padding: 0rem 1.5rem;
+  }
+  .landing-main .bottom-section .left {
+    border-right: none;
+  }
+}
+@media (max-width: 550px) {
+  .landing-main .bottom-section .article .title {
+    font-size: 2.5rem;
+  }
+  .landing-main .bottom-section .article .text {
+    font-size: 1.25rem;
+  }
+  .landing-main .bottom-section .article .btn {
+    font-size: 1.5rem;
+  }
+}
+@media (max-width: 479px) {
+  .landing-main .top-section .article .info-card .text {
+    font-size: 1.25rem;
+  }
+}
+@media (max-width: 365px) {
+  .landing-main .bottom-section .article .title {
+    font-size: 2rem;
+  }
+  .landing-main .bottom-section .article .btn {
+    font-size: 1.25rem;
+  }
+}
 * {
   padding: 0;
   margin: 0;
@@ -505,6 +584,11 @@ a, p, label {
   display: none;
 }
 
+@media (max-width: 1439px) {
+  .header {
+    height: 15vh;
+  }
+}
 @media (max-width: 767px) {
   .footer .top-section {
     flex-direction: column;

@@ -15,8 +15,8 @@ export default function LoggedLayout() {
                 <div className='btns-container'>
                     {!logged && (
                         <div className='btns-div display-none'>
-                            <button type='button' className='btn'>Iniciar Sesión</button>
-                            <button type='button' className='btn purple'>Registrarse</button>
+                            <Link to='/login' className='btn'>Iniciar Sesión</Link>
+                            <Link to='/signup' className='btn purple'>Registrarse</Link>
                         </div>
                     )}
                     {logged && (

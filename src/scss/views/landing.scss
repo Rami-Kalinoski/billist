@@ -70,7 +70,7 @@
                 text-decoration: none;
                 text-align: center;
             }
-            .p {
+            .text {
                 font-size: 1.75rem;
                 text-align: center;
             }
@@ -102,19 +102,124 @@
 
 // RESPONSIVE DESIGN --------------------------------------------------------------------------------------------------------------------------------
 @media (max-width: 1439px) {
+    .landing-main {
+        .top-section {
+            .article {
+                flex-direction: column;
+                .info-card {
+                    height: 40vh;
+                    width: 30vw;
+                }
+            }
+        }
+        .bottom-section {
+            .article {
+                height: 50vh;
+                padding: 0rem 2.5rem 5rem 2.5rem;
+            }
+        }
+    }
 }
 
 @media (max-width: 1023px) {
+    .landing-main {
+        .top-section {
+            .article {
+                flex-direction: column;
+                .info-card {
+                    height: 35vw;
+                    .text {
+                        font-size: 1.5rem;
+                    }
+                }
+            }
+        }
+        .bottom-section {
+            .article {
+                .title {
+                    font-size: 3rem;
+                }
+                .text {
+                    font-size: 1.5rem;
+                }
+                .btn {
+                    font-size: 1.6rem;
+                }
+            }
+        }
+    }
 }
 
 @media (max-width: 767px) {
+    .landing-main {
+        .top-section {
+            flex-direction: column;
+            .article {
+                .info-card {
+                    height: 40vh;
+                    width: 60%;
+                }
+            }
+        }
+        .bottom-section {
+            flex-direction: column;
+            .article {
+                width: 100%;
+                padding: 5rem 0rem;
+                .text {
+                    padding: 0rem 1.5rem;
+                }
+            }
+            .left {
+                border-right: none;
+            }
+        }
+    }
 }
 
 @media (max-width: 550px) {
+    .landing-main {
+        .bottom-section {
+            .article {
+                .title {
+                    font-size: 2.5rem;
+                }
+                .text {
+                    font-size: 1.25rem;
+                }
+                .btn {
+                    font-size: 1.5rem;
+                }
+            }
+        }
+    }
 }
 
 @media (max-width: 479px) {
+    .landing-main {
+        .top-section {
+            .article {
+                .info-card {
+                    .text {
+                        font-size: 1.25rem;
+                    }
+                }
+            }
+        }
+    }
 }
 
 @media (max-width: 365px) {
+    .landing-main {
+        .bottom-section {
+            .article {
+                .title {
+                    font-size: 2rem;
+                }
+                .btn {
+                    font-size: 1.25rem;
+                }
+            }
+        }
+    }
 }
