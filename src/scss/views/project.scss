@@ -1,0 +1,424 @@
+.project-main {
+    height: 100vh;
+    display: flex;
+    .left-section {
+        width: 50%;
+        display: flex;
+        flex-direction: column;
+        .title-article {
+            height: 20%;
+            padding: 0rem 2rem;
+            .top-div {
+                height: 40%;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                border-bottom: solid 1px #333333;
+                .title {
+                    font-size: 4rem;
+                    font-family: "Lora", serif;
+                    font-weight: 600;
+                    color: #ececec;
+                    text-decoration: none;
+                    text-align: center;
+                }
+                .edit-btn {
+                    font-size: 1.75rem;
+                    font-family: "Manrope", serif;
+                    font-weight: 500;
+                    color: #ececec;
+                    text-decoration: none;
+                    text-align: center;
+                    background-color: #070707;
+                    border: none;
+                    border-radius: 5px;
+                    display: flex;
+                    align-items: center;
+                    gap: 1.5rem;
+                    padding: 1rem;
+                    transition: ease .3s;
+                    cursor: pointer;
+                    &:hover {
+                        background-color: #010101;
+                    }
+                    .img {
+                        height: 2rem;
+                    }
+                }
+            }
+            .balance-div {
+                height: 60%;
+                display: flex;
+                justify-content: start;
+                align-items: center;
+                .text {
+                    font-size: 2.5rem;
+                    font-family: "Manrope", serif;
+                    font-weight: 500;
+                    color: #ececec;
+                    text-decoration: none;
+                    text-align: center;
+                }
+                .lends {
+                    color: rgb(97, 211, 82);
+                }
+                .owes {
+                    color: #db3737;
+                }
+            }
+        }
+        .bills-article {
+            height: 80%;
+            display: flex;
+            flex-direction: column;
+            gap: 2.5rem;
+            padding: 1.5rem 2rem 3rem 2rem;
+            .title-div {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                border-bottom: solid 1px #333333;
+                padding-bottom: 1rem;
+                .title {
+                    font-size: 3rem;
+                    font-family: "Lora", serif;
+                    font-weight: 600;
+                    color: #ececec;
+                    text-decoration: none;
+                    text-align: center;
+                }
+                .add-bill-btn {
+                    font-size: 1.75rem;
+                    font-family: "Manrope", serif;
+                    font-weight: 500;
+                    color: #ececec;
+                    text-decoration: none;
+                    text-align: center;
+                    background-color: #070707;
+                    border: none;
+                    border-radius: 5px;
+                    display: flex;
+                    align-items: center;
+                    gap: 1.5rem;
+                    padding: 1rem;
+                    transition: ease .3s;
+                    cursor: pointer;
+                    &:hover {
+                        background-color: #c267f2;
+                        transition: ease .3s;
+                    }
+                    .img {
+                        height: 2rem;
+                    }
+                }
+            }
+            .bills-section {
+                height: 100%;
+                border-radius: 10px;
+                display: flex;
+                flex-direction: column;
+                justify-content: start;
+                gap: 3rem;
+                overflow-y: auto;
+                overflow-x: hidden;
+                .bill {
+                    background-color: #1a1a1a;
+                    border-radius: 10px;
+                    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.9);
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    padding: 1.5rem;
+                    .date-description-div {
+                        display: flex;
+                        justify-content: start;
+                        align-items: center;
+                        gap: 3rem;
+                        .date-div {
+                            display: flex;
+                            flex-direction: column;
+                            justify-content: center;
+                            align-items: center;
+                            grid-area: .5rem;
+                            .month {
+                                font-size: 2rem;
+                                cursor: default;
+                            }
+                            .day {
+                                font-size: 2.5rem;
+                                cursor: default;
+                            }
+                        }
+                        .bill-description {
+                            display: flex;
+                            flex-direction: column;
+                            justify-content: start;
+                            align-items: start;
+                            gap: .5rem;
+                            .name {
+                                font-size: 2.25rem;
+                                font-family: "Manrope", serif;
+                                font-weight: 500;
+                                color: #ececec;
+                                text-decoration: none;
+                                cursor: default;
+                            }
+                            .description {
+                                font-size: 1.75rem;
+                                font-family: "Manrope", serif;
+                                font-weight: 500;
+                                color: #ececec;
+                                text-decoration: none;
+                                cursor: default;
+                            }
+                        }
+                    }
+                    .bill-balance {
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: center;
+                        align-items: end;
+                        gap: .5rem;
+                        cursor: default;
+                        .lends {
+                            color: rgb(97, 211, 82);
+                        }
+                        .owes {
+                            color: #db3737;
+                        } 
+                    }
+                }
+            }
+        }
+    }
+    .right-section {
+        width: 50%;
+        background-color: #232323;
+        padding: 0rem 2rem;
+        .btns-article {
+            height: 8%;
+            border-bottom: solid 1px #444444;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            .btn {
+                font-size: 1.75rem;
+                font-family: "Manrope", serif;
+                font-weight: 500;
+                color: #ececec;
+                text-decoration: none;
+                background-color: #070707;
+                border: none;
+                border-radius: 5px;
+                padding: 1rem 1.5rem;
+                transition: ease .3s;
+                cursor: pointer;
+                &:hover {
+                    background-color: #c267f2;
+                    transition: ease .3s;
+                }
+            }
+            .pressed {
+                background-color: #a15ec5;
+            }
+        }
+        .members-article {
+            height: 92%;
+            display: flex;
+            flex-direction: column;
+            gap: 7.5rem;
+            .list {
+                height: 50%;
+                display: flex;
+                flex-direction: column;
+                justify-content: start;
+                align-items: start;
+                gap: 1.5rem;
+                padding: 5rem 0rem;
+                overflow-y: auto;
+                overflow-x: hidden;
+                .default-text {
+                    font-size: 2rem;
+                    font-family: "Manrope", serif;
+                    font-weight: 500;
+                    color: #ececec;
+                    text-decoration: none;
+                }
+                .item {
+                    .text {
+                        font-size: 2rem;
+                        font-family: "Manrope", serif;
+                        font-weight: 500;
+                        color: #ececec;
+                        text-decoration: none;
+                        display: flex;
+                        justify-content: start;
+                        align-items: center;
+                        gap: 2rem;
+                        .img {
+                            height: 2rem;
+                        }
+                    }
+                }
+            }
+            .btns-div {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                gap: 1rem;
+                .btn {
+                    width: 50%;
+                    font-size: 1.5rem;
+                    font-family: "Manrope", serif;
+                    font-weight: 500;
+                    color: #ececec;
+                    text-decoration: none;
+                    background-color: #070707;
+                    border: none;
+                    border-radius: 5px;
+                    padding: 1rem 1.5rem;
+                    cursor: pointer;
+                    &:hover {
+                        background-color: #c267f2;
+                        transition: ease .3s;
+                    }
+                }
+            }
+        }
+        .resume-article {
+            display: flex;
+            flex-direction: column;
+            justify-content: start;
+            align-items: start;
+            gap: 5rem;
+            padding: 5rem 0rem;
+            .div {
+                display: flex;
+                flex-direction: column;
+                justify-content: start;
+                align-items: start;
+                gap: 1.5rem;
+                .title {
+                    font-size: 2rem;
+                    font-family: "Manrope", serif;
+                    font-weight: 500;
+                    color: #ececec;
+                    text-decoration: none;
+                    position: relative;
+                    &::after {
+                        content: "";
+                        position: absolute;
+                        bottom: 0;
+                        left: 0;
+                        width: 100%;
+                        height: 2px;
+                        background-color: #ececec;
+                    }
+                }
+                .amount {
+                    font-size: 2.5rem;
+                    font-family: "Manrope", serif;
+                    font-weight: 500;
+                    color: #ececec;
+                    text-decoration: none;
+                }
+            }
+        }
+        .bills-article {
+            display: flex;
+            flex-direction: column;
+            justify-content: start;
+            align-items: start;
+            gap: 5rem;
+            padding: 5rem 0rem;
+            .member {
+                display: flex;
+                flex-direction: column;
+                justify-content: start;
+                align-items: start;
+                gap: 1.5rem;
+                .resume {
+                    font-size: 1.75rem;
+                    font-family: "Manrope", serif;
+                    font-weight: 500;
+                    color: #ececec;
+                    text-decoration: none;
+                }
+                .detail  {
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: start;
+                    align-items: start;
+                    gap: 1rem;
+                    padding-left: 1.5rem;
+                    border-left: solid 2px #444444;
+                    .item {
+                        font-size: 1.75rem;
+                        font-family: "Manrope", serif;
+                        font-weight: 500;
+                        color: #ececec;
+                        text-decoration: none;
+                    }
+                }
+            }
+        }
+        .pay-article {
+            display: flex;
+            flex-direction: column;
+            justify-content: start;
+            align-items: start;
+            gap: 2rem;
+            padding: 5rem 0rem;
+            .member {
+                width: 100%;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                .name {
+                    font-size: 1.75rem;
+                    font-family: "Manrope", serif;
+                    font-weight: 500;
+                    color: #ececec;
+                    text-decoration: none;
+                    display: flex;
+                    justify-content: start;
+                    align-items: center;
+                    gap: 2rem;
+                    .img {
+                        height: 2rem;
+                    }
+                }
+                .btn-div {
+                    display: flex;
+                    justify-content: end;
+                    align-items: center;
+                    gap: 1.5rem;
+                    .detail {
+                        font-size: 1.75rem;
+                        font-family: "Manrope", serif;
+                        font-weight: 500;
+                        color: #db3737;
+                        text-decoration: none;
+                    }
+                    .btn {
+                        font-size: 1.75rem;
+                        font-family: "Manrope", serif;
+                        font-weight: 500;
+                        color: #ececec;
+                        text-decoration: none;
+                        background-color: #070707;
+                        border: none;
+                        border-radius: 5px;
+                        padding: 1rem 1.5rem;
+                        transition: ease .3s;
+                        cursor: pointer;
+                        &:hover {
+                            background-color: rgb(88, 153, 80);
+                            transition: ease .3s;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

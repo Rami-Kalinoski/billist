@@ -1,5 +1,5 @@
-import React, { useState, useRef } from 'react'
-import { Link, useNavigate } from 'react-router-dom'
+import React, { useState, useRef } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import login from '../api/login';
 
 export default function Login() {
@@ -45,8 +45,8 @@ export default function Login() {
                     </div>
                 </div>
                 <div className='btns-div'>
-                    <button type='submit' className='btn ingresar-btn'>Ingresar</button>
                     <button type='button' className='btn limpiar-btn' onClick={handleClear}>Limpiar</button>
+                    <button type='submit' className='btn ingresar-btn'>Ingresar</button>
                 </div>
                 <div className='anchors-div'>
                     <Link to="/signup" className='anchor'>¿Aún no te has registrado? Crea tu cuenta aquí</Link> {/* falta poner la dirección*/}

@@ -2,12 +2,16 @@
 @use './views/login';
 @use './views/signup';
 @use './views/landing';
+@use './views/dashboard';
+@use './views/createProject';
+@use './views/project';
 
 // GENERALES
 * {
     padding: 0;
     margin: 0;
     font-size: 62.5%;
+    box-sizing: border-box;
 }
 
 body {

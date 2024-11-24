@@ -1,12 +1,12 @@
 .login-main {
-  height: 50vw;
+  height: 40vw;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 .login-main .form {
-  height: 40vw;
-  width: 20vw;
+  height: 30vw;
+  width: 25vw;
   background-color: #222222;
   box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.9);
   border-radius: 15px;
@@ -82,6 +82,7 @@
 }
 .login-main .form .btns-div .ingresar-btn {
   background-color: #a15ec5;
+  transition: ease 0.3s;
 }
 .login-main .form .btns-div .ingresar-btn:hover {
   background-color: #c267f2;
@@ -126,14 +127,14 @@
   }
 }
 .signup-main {
-  height: 60vw;
+  height: 50vw;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 .signup-main .form {
-  height: 50vw;
-  width: 20vw;
+  height: 40vw;
+  width: 25vw;
   background-color: #222222;
   box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.9);
   border-radius: 15px;
@@ -433,10 +434,981 @@
     font-size: 1.25rem;
   }
 }
+.dashboard-main {
+  height: 90vh;
+  display: flex;
+  position: relative;
+}
+.dashboard-main .left-section {
+  width: 50%;
+  background-color: #050505;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  padding: 5rem 0rem;
+}
+.dashboard-main .left-section .general-balance-article {
+  height: 45%;
+  width: 60%;
+  border-radius: 15px;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.9);
+  background-color: #1a1a1a;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  overflow: hidden;
+}
+.dashboard-main .left-section .general-balance-article .title-div {
+  height: 20%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-bottom: solid 1px #333333;
+  padding: 0rem 1.5rem;
+}
+.dashboard-main .left-section .general-balance-article .title-div .title {
+  font-size: 2.5rem;
+  font-family: "Lora", serif;
+  font-weight: 600;
+  color: #ececec;
+  text-decoration: none;
+  text-align: center;
+}
+.dashboard-main .left-section .general-balance-article .balance-div {
+  height: 80%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+}
+.dashboard-main .left-section .general-balance-article .balance-div .text {
+  font-size: 5rem;
+  display: flex;
+  gap: 1rem;
+}
+.dashboard-main .left-section .general-balance-article .balance-div .sub-text {
+  font-size: 2.5rem;
+}
+.dashboard-main .left-section .general-balance-article .balance-div .lends {
+  color: rgb(97, 211, 82);
+}
+.dashboard-main .left-section .general-balance-article .balance-div .owes {
+  color: #db3737;
+}
+.dashboard-main .left-section .friends-article {
+  height: 45%;
+  width: 60%;
+  background-color: #1a1a1a;
+  border-radius: 15px;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.9);
+  overflow: hidden;
+}
+.dashboard-main .left-section .friends-article .title-div {
+  height: 20%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: solid 1px #333333;
+  padding: 0rem 1.5rem;
+}
+.dashboard-main .left-section .friends-article .title-div .title {
+  font-size: 2.5rem;
+  font-family: "Lora", serif;
+  font-weight: 600;
+  color: #ececec;
+  text-decoration: none;
+  text-align: center;
+}
+.dashboard-main .left-section .friends-article .title-div .add-friend-btn {
+  font-size: 1.75rem;
+  font-family: "Manrope", serif;
+  font-weight: 500;
+  color: #ececec;
+  text-decoration: none;
+  text-align: center;
+  background-color: #131313;
+  border: none;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 0.5rem;
+  transition: ease 0.3s;
+  cursor: pointer;
+}
+.dashboard-main .left-section .friends-article .title-div .add-friend-btn:hover {
+  background-color: #010101;
+}
+.dashboard-main .left-section .friends-article .title-div .add-friend-btn .img {
+  height: 2rem;
+}
+.dashboard-main .left-section .friends-article .friends-div {
+  height: 80%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: start;
+  gap: 2rem;
+  padding: 1.5rem;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+.dashboard-main .left-section .friends-article .friends-div .div {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  gap: 1rem;
+  cursor: pointer;
+}
+.dashboard-main .left-section .friends-article .friends-div .div .img {
+  height: 1.75rem;
+}
+.dashboard-main .left-section .friends-article .friends-div .div .text {
+  font-size: 1.75rem;
+  font-family: "Manrope", serif;
+  font-weight: 500;
+  color: #ececec;
+  text-decoration: none;
+  text-align: center;
+}
+.dashboard-main .right-section {
+  height: auto;
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+}
+.dashboard-main .right-section .title-article {
+  height: 10%;
+  border-bottom: solid 1px #333333;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0rem 3rem;
+}
+.dashboard-main .right-section .title-article .title {
+  font-size: 3rem;
+  font-family: "Lora", serif;
+  font-weight: 600;
+  color: #ececec;
+  text-decoration: none;
+  text-align: center;
+}
+.dashboard-main .right-section .title-article .create-project-btn {
+  background-color: #030303;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 1rem 1.5rem;
+  transition: ease 0.3s;
+  cursor: pointer;
+}
+.dashboard-main .right-section .title-article .create-project-btn:hover {
+  background-color: #c267f2;
+  transition: ease 0.3s;
+}
+.dashboard-main .right-section .title-article .create-project-btn .img {
+  height: 2rem;
+}
+.dashboard-main .right-section .projects-article {
+  height: 90%;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: start;
+  gap: 2rem;
+  padding: 3rem 3rem 0rem 3rem;
+}
+.dashboard-main .right-section .projects-article .project-link {
+  width: 100%;
+  background-color: #202020;
+  border-radius: 5px;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.9);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2rem 1.5rem;
+  position: relative;
+}
+.dashboard-main .right-section .projects-article .project-link .project-name {
+  font-size: 2rem;
+  font-family: "Manrope", serif;
+  font-weight: 500;
+  color: #ececec;
+  text-decoration: none;
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+.dashboard-main .right-section .projects-article .project-link .project-balance {
+  transition: transform 0.3s ease;
+}
+.dashboard-main .right-section .projects-article .project-link .lends {
+  color: rgb(97, 211, 82);
+}
+.dashboard-main .right-section .projects-article .project-link .owes {
+  color: #db3737;
+}
+.dashboard-main .right-section .projects-article .project-link:hover .project-name {
+  animation: pulse-effect 0.4s ease-in-out;
+}
+.dashboard-main .right-section .projects-article .project-link:hover .project-balance {
+  animation: bounce-effect 0.5s ease-in-out;
+}
+
+@keyframes bounce-effect {
+  0% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-10px);
+  }
+  50% {
+    transform: translateX(0px);
+  }
+  75% {
+    transform: translateX(-5px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+@keyframes pulse-effect {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+@media (max-width: 1439px) {
+  .dashboard-main .left-section .general-balance-article {
+    width: 50vh;
+  }
+  .dashboard-main .left-section .friends-article {
+    width: 50vh;
+  }
+}
+@media (max-width: 1023px) {
+  .dashboard-main {
+    height: auto;
+    width: 100%;
+    flex-direction: column;
+  }
+  .dashboard-main .left-section {
+    height: auto;
+    width: 100%;
+    gap: 5rem;
+  }
+  .dashboard-main .left-section .general-balance-article {
+    height: 35vh;
+  }
+  .dashboard-main .left-section .friends-article {
+    height: 35vh;
+  }
+  .dashboard-main .right-section {
+    width: 100%;
+  }
+  .dashboard-main .right-section .title-article {
+    padding-bottom: 2.5rem;
+    margin-top: 5rem;
+  }
+  .dashboard-main .right-section .projects-article {
+    margin-bottom: 10rem;
+  }
+}
+@media (max-width: 550px) {
+  .dashboard-main .left-section .general-balance-article {
+    width: 80vw;
+  }
+  .dashboard-main .left-section .general-balance-article .title-div .title {
+    font-size: 2rem;
+  }
+  .dashboard-main .left-section .friends-article {
+    width: 80vw;
+  }
+  .dashboard-main .left-section .friends-article .title-div .title {
+    font-size: 2rem;
+  }
+  .dashboard-main .left-section .friends-article .title-div .add-friend-btn {
+    font-size: 1.5rem;
+  }
+  .dashboard-main .left-section .friends-article .friends-div .div .img {
+    height: 1.5rem;
+  }
+  .dashboard-main .left-section .friends-article .friends-div .div .text {
+    font-size: 1.5rem;
+  }
+  .dashboard-main .right-section {
+    width: 100%;
+  }
+  .dashboard-main .right-section .title-article {
+    padding-bottom: 2.5rem;
+    margin-top: 5rem;
+  }
+  .dashboard-main .right-section .projects-article {
+    margin-bottom: 10rem;
+  }
+  .dashboard-main .right-section .projects-article .project-link .project-name {
+    font-size: 1.75rem;
+  }
+  .dashboard-main .right-section .projects-article .project-link .project-balance {
+    font-size: 1.5rem;
+  }
+}
+@media (max-width: 479px) {
+  .dashboard-main .left-section .general-balance-article .title-div .title {
+    font-size: 1.75rem;
+  }
+  .dashboard-main .right-section .projects-article {
+    margin-bottom: 10rem;
+  }
+}
+@media (max-width: 365px) {
+  .dashboard-main .left-section .general-balance-article {
+    height: 30vh;
+  }
+  .dashboard-main .left-section .general-balance-article .title-div .title {
+    font-size: 1.5rem;
+  }
+  .dashboard-main .left-section .general-balance-article .balance-div .text {
+    font-size: 3.5rem;
+  }
+  .dashboard-main .left-section .general-balance-article .balance-div .sub-text {
+    font-size: 2.5rem;
+  }
+  .dashboard-main .left-section .friends-article {
+    height: 30vh;
+  }
+  .dashboard-main .left-section .friends-article .title-div .add-friend-btn img {
+    display: none;
+  }
+  .dashboard-main .right-section .title-article .create-project-btn .img {
+    display: none;
+  }
+  .dashboard-main .right-section .project-link {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+  }
+}
+@media (max-width: 300px) {
+  .dashboard-main .left-section .general-balance-article {
+    height: 30vh;
+  }
+  .dashboard-main .left-section .general-balance-article .balance-div .text {
+    font-size: 3rem;
+  }
+  .dashboard-main .left-section .general-balance-article .balance-div .sub-text {
+    font-size: 2rem;
+  }
+  .dashboard-main .left-section .friends-article {
+    height: 30vh;
+  }
+  .dashboard-main .left-section .friends-article .title-div {
+    height: 30%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .dashboard-main .left-section .friends-article .friends-div {
+    height: 70%;
+  }
+  .dashboard-main .right-section .title-article {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+  }
+}
+.create-project-main {
+  height: 40vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.create-project-main .form {
+  height: 35vw;
+  width: 30vw;
+  background-color: #222222;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.9);
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  padding: 0rem 3rem;
+}
+.create-project-main .form .title {
+  font-size: 3rem;
+  font-family: "Lora", serif;
+  font-weight: 800;
+  color: #ececec;
+  text-decoration: none;
+  text-align: center;
+}
+.create-project-main .form .inputs-div {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+.create-project-main .form .inputs-div .input-div {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: start;
+  gap: 1rem;
+}
+.create-project-main .form .inputs-div .input-div .label {
+  font-size: 1.5rem;
+  font-family: "Manrope", serif;
+  font-weight: 500;
+  color: #ececec;
+  text-decoration: none;
+  text-align: center;
+}
+.create-project-main .form .inputs-div .input-div .input {
+  width: 100%;
+  background-color: #444444;
+  border: solid 1px #111111;
+  border-radius: 5px;
+  font-size: 1.5rem;
+  font-family: "Manrope", serif;
+  font-weight: 500;
+  color: #ececec;
+  text-decoration: none;
+  text-align: start;
+  padding: 0.5rem 0rem;
+}
+.create-project-main .form .inputs-div .input-div .textarea {
+  height: 20vh;
+  width: 100%;
+  background-color: #444444;
+  border: solid 1px #111111;
+  border-radius: 5px;
+  font-size: 1.5rem;
+  font-family: "Manrope", serif;
+  font-weight: 500;
+  color: #ececec;
+  text-decoration: none;
+  text-align: start;
+  padding: 0.5rem 0rem;
+  resize: none;
+}
+.create-project-main .form .btns-div {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5rem;
+}
+.create-project-main .form .btns-div .btn {
+  width: 100%;
+  border: none;
+  border-radius: 5px;
+  font-family: "Manrope", serif;
+  font-weight: 600;
+  color: #ececec;
+  text-decoration: none;
+  text-align: center;
+  padding: 0.5rem 0rem;
+  transition: ease 0.3s;
+  cursor: pointer;
+}
+.create-project-main .form .btns-div .crear-btn {
+  font-size: 1.5rem;
+  background-color: #a15ec5;
+}
+.create-project-main .form .btns-div .crear-btn:hover {
+  background-color: #c267f2;
+  transition: ease 0.3s;
+}
+.create-project-main .form .btns-div .limpiar-btn {
+  font-size: 1.75rem;
+  background-color: #111111;
+}
+.create-project-main .form .btns-div .limpiar-btn:hover {
+  background-color: #151515;
+  transition: ease 0.3s;
+}
+
+@media (max-width: 1439px) {
+  .create-project-main {
+    height: 80vh;
+  }
+  .create-project-main .form {
+    height: 70vh;
+    width: 60vw;
+  }
+}
+@media (max-width: 767px) {
+  .create-project-main .form {
+    width: 70vw;
+  }
+}
+@media (max-width: 479px) {
+  .create-project-main .form .title {
+    font-size: 2.5rem;
+  }
+  .create-project-main .form .inputs-div .input-div {
+    align-items: center;
+    gap: 2rem;
+  }
+  .create-project-main .form .inputs-div .input-div .label {
+    font-size: 1.25rem;
+    text-align: center;
+  }
+  .create-project-main .form .btns-div .btn {
+    font-size: 1.5rem;
+  }
+  .create-project-main .form .btns-div .crear-btn {
+    font-size: 1.25rem;
+  }
+}
+@media (max-width: 365px) {
+  .create-project-main .form .title {
+    font-size: 2rem;
+  }
+}
+.project-main {
+  height: 100vh;
+  display: flex;
+}
+.project-main .left-section {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+}
+.project-main .left-section .title-article {
+  height: 20%;
+  padding: 0rem 2rem;
+}
+.project-main .left-section .title-article .top-div {
+  height: 40%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: solid 1px #333333;
+}
+.project-main .left-section .title-article .top-div .title {
+  font-size: 4rem;
+  font-family: "Lora", serif;
+  font-weight: 600;
+  color: #ececec;
+  text-decoration: none;
+  text-align: center;
+}
+.project-main .left-section .title-article .top-div .edit-btn {
+  font-size: 1.75rem;
+  font-family: "Manrope", serif;
+  font-weight: 500;
+  color: #ececec;
+  text-decoration: none;
+  text-align: center;
+  background-color: #070707;
+  border: none;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 1rem;
+  transition: ease 0.3s;
+  cursor: pointer;
+}
+.project-main .left-section .title-article .top-div .edit-btn:hover {
+  background-color: #010101;
+}
+.project-main .left-section .title-article .top-div .edit-btn .img {
+  height: 2rem;
+}
+.project-main .left-section .title-article .balance-div {
+  height: 60%;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+}
+.project-main .left-section .title-article .balance-div .text {
+  font-size: 2.5rem;
+  font-family: "Manrope", serif;
+  font-weight: 500;
+  color: #ececec;
+  text-decoration: none;
+  text-align: center;
+}
+.project-main .left-section .title-article .balance-div .lends {
+  color: rgb(97, 211, 82);
+}
+.project-main .left-section .title-article .balance-div .owes {
+  color: #db3737;
+}
+.project-main .left-section .bills-article {
+  height: 80%;
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+  padding: 1.5rem 2rem 3rem 2rem;
+}
+.project-main .left-section .bills-article .title-div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: solid 1px #333333;
+  padding-bottom: 1rem;
+}
+.project-main .left-section .bills-article .title-div .title {
+  font-size: 3rem;
+  font-family: "Lora", serif;
+  font-weight: 600;
+  color: #ececec;
+  text-decoration: none;
+  text-align: center;
+}
+.project-main .left-section .bills-article .title-div .add-bill-btn {
+  font-size: 1.75rem;
+  font-family: "Manrope", serif;
+  font-weight: 500;
+  color: #ececec;
+  text-decoration: none;
+  text-align: center;
+  background-color: #070707;
+  border: none;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 1rem;
+  transition: ease 0.3s;
+  cursor: pointer;
+}
+.project-main .left-section .bills-article .title-div .add-bill-btn:hover {
+  background-color: #c267f2;
+  transition: ease 0.3s;
+}
+.project-main .left-section .bills-article .title-div .add-bill-btn .img {
+  height: 2rem;
+}
+.project-main .left-section .bills-article .bills-section {
+  height: 100%;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  gap: 3rem;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+.project-main .left-section .bills-article .bills-section .bill {
+  background-color: #1a1a1a;
+  border-radius: 10px;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.9);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem;
+}
+.project-main .left-section .bills-article .bills-section .bill .date-description-div {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  gap: 3rem;
+}
+.project-main .left-section .bills-article .bills-section .bill .date-description-div .date-div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  grid-area: 0.5rem;
+}
+.project-main .left-section .bills-article .bills-section .bill .date-description-div .date-div .month {
+  font-size: 2rem;
+  cursor: default;
+}
+.project-main .left-section .bills-article .bills-section .bill .date-description-div .date-div .day {
+  font-size: 2.5rem;
+  cursor: default;
+}
+.project-main .left-section .bills-article .bills-section .bill .date-description-div .bill-description {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: start;
+  gap: 0.5rem;
+}
+.project-main .left-section .bills-article .bills-section .bill .date-description-div .bill-description .name {
+  font-size: 2.25rem;
+  font-family: "Manrope", serif;
+  font-weight: 500;
+  color: #ececec;
+  text-decoration: none;
+  cursor: default;
+}
+.project-main .left-section .bills-article .bills-section .bill .date-description-div .bill-description .description {
+  font-size: 1.75rem;
+  font-family: "Manrope", serif;
+  font-weight: 500;
+  color: #ececec;
+  text-decoration: none;
+  cursor: default;
+}
+.project-main .left-section .bills-article .bills-section .bill .bill-balance {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: end;
+  gap: 0.5rem;
+  cursor: default;
+}
+.project-main .left-section .bills-article .bills-section .bill .bill-balance .lends {
+  color: rgb(97, 211, 82);
+}
+.project-main .left-section .bills-article .bills-section .bill .bill-balance .owes {
+  color: #db3737;
+}
+.project-main .right-section {
+  width: 50%;
+  background-color: #232323;
+  padding: 0rem 2rem;
+}
+.project-main .right-section .btns-article {
+  height: 8%;
+  border-bottom: solid 1px #444444;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.project-main .right-section .btns-article .btn {
+  font-size: 1.75rem;
+  font-family: "Manrope", serif;
+  font-weight: 500;
+  color: #ececec;
+  text-decoration: none;
+  background-color: #070707;
+  border: none;
+  border-radius: 5px;
+  padding: 1rem 1.5rem;
+  transition: ease 0.3s;
+  cursor: pointer;
+}
+.project-main .right-section .btns-article .btn:hover {
+  background-color: #c267f2;
+  transition: ease 0.3s;
+}
+.project-main .right-section .btns-article .pressed {
+  background-color: #a15ec5;
+}
+.project-main .right-section .members-article {
+  height: 92%;
+  display: flex;
+  flex-direction: column;
+  gap: 7.5rem;
+}
+.project-main .right-section .members-article .list {
+  height: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: start;
+  gap: 1.5rem;
+  padding: 5rem 0rem;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+.project-main .right-section .members-article .list .default-text {
+  font-size: 2rem;
+  font-family: "Manrope", serif;
+  font-weight: 500;
+  color: #ececec;
+  text-decoration: none;
+}
+.project-main .right-section .members-article .list .item .text {
+  font-size: 2rem;
+  font-family: "Manrope", serif;
+  font-weight: 500;
+  color: #ececec;
+  text-decoration: none;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  gap: 2rem;
+}
+.project-main .right-section .members-article .list .item .text .img {
+  height: 2rem;
+}
+.project-main .right-section .members-article .btns-div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+.project-main .right-section .members-article .btns-div .btn {
+  width: 50%;
+  font-size: 1.5rem;
+  font-family: "Manrope", serif;
+  font-weight: 500;
+  color: #ececec;
+  text-decoration: none;
+  background-color: #070707;
+  border: none;
+  border-radius: 5px;
+  padding: 1rem 1.5rem;
+  cursor: pointer;
+}
+.project-main .right-section .members-article .btns-div .btn:hover {
+  background-color: #c267f2;
+  transition: ease 0.3s;
+}
+.project-main .right-section .resume-article {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: start;
+  gap: 5rem;
+  padding: 5rem 0rem;
+}
+.project-main .right-section .resume-article .div {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: start;
+  gap: 1.5rem;
+}
+.project-main .right-section .resume-article .div .title {
+  font-size: 2rem;
+  font-family: "Manrope", serif;
+  font-weight: 500;
+  color: #ececec;
+  text-decoration: none;
+  position: relative;
+}
+.project-main .right-section .resume-article .div .title::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: #ececec;
+}
+.project-main .right-section .resume-article .div .amount {
+  font-size: 2.5rem;
+  font-family: "Manrope", serif;
+  font-weight: 500;
+  color: #ececec;
+  text-decoration: none;
+}
+.project-main .right-section .bills-article {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: start;
+  gap: 5rem;
+  padding: 5rem 0rem;
+}
+.project-main .right-section .bills-article .member {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: start;
+  gap: 1.5rem;
+}
+.project-main .right-section .bills-article .member .resume {
+  font-size: 1.75rem;
+  font-family: "Manrope", serif;
+  font-weight: 500;
+  color: #ececec;
+  text-decoration: none;
+}
+.project-main .right-section .bills-article .member .detail {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: start;
+  gap: 1rem;
+  padding-left: 1.5rem;
+  border-left: solid 2px #444444;
+}
+.project-main .right-section .bills-article .member .detail .item {
+  font-size: 1.75rem;
+  font-family: "Manrope", serif;
+  font-weight: 500;
+  color: #ececec;
+  text-decoration: none;
+}
+.project-main .right-section .pay-article {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: start;
+  gap: 2rem;
+  padding: 5rem 0rem;
+}
+.project-main .right-section .pay-article .member {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.project-main .right-section .pay-article .member .name {
+  font-size: 1.75rem;
+  font-family: "Manrope", serif;
+  font-weight: 500;
+  color: #ececec;
+  text-decoration: none;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  gap: 2rem;
+}
+.project-main .right-section .pay-article .member .name .img {
+  height: 2rem;
+}
+.project-main .right-section .pay-article .member .btn-div {
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  gap: 1.5rem;
+}
+.project-main .right-section .pay-article .member .btn-div .detail {
+  font-size: 1.75rem;
+  font-family: "Manrope", serif;
+  font-weight: 500;
+  color: #db3737;
+  text-decoration: none;
+}
+.project-main .right-section .pay-article .member .btn-div .btn {
+  font-size: 1.75rem;
+  font-family: "Manrope", serif;
+  font-weight: 500;
+  color: #ececec;
+  text-decoration: none;
+  background-color: #070707;
+  border: none;
+  border-radius: 5px;
+  padding: 1rem 1.5rem;
+  transition: ease 0.3s;
+  cursor: pointer;
+}
+.project-main .right-section .pay-article .member .btn-div .btn:hover {
+  background-color: rgb(88, 153, 80);
+  transition: ease 0.3s;
+}
+
 * {
   padding: 0;
   margin: 0;
   font-size: 62.5%;
+  box-sizing: border-box;
 }
 
 body {

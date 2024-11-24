@@ -3,6 +3,9 @@ import { Link, useNavigate } from 'react-router-dom'
 import signup from '../api/signup';
 
 export default function Signup() {
+    // control de carteles
+    const [sign, setSign] = useState('none');
+
     // botón "limpiar"
     const usernameInput = useRef(null);
     const emailInput = useRef(null);
@@ -29,12 +32,27 @@ export default function Signup() {
     const handleConfirmPasswordChange = (e) => { setConfirmPassword(e.target.value); };
     const handleSubmit = async (e) => {
         e.preventDefault();
-        let response = await signup(username, email, password, confirmPassword);
-        if (response.status === 200) {
-            sessionStorage.setItem('access-token', response.token);
-            navigate('/dashboard');
+        // si las contraseñas no coinciden
+        if (password!==confirmPassword) {
+            setSign('differentPasswords');
+            Swal.fire({
+                title: "Sweet!",
+                text: "Modal with a custom image.",
+                icon: "error",
+                imageUrl: "https://unsplash.it/400/200",
+                imageWidth: 400,
+                imageHeight: 200,
+                imageAlt: "Custom image"
+            });
         } else {
-            setError(response.message);
+            let response = await signup(username, email, password, confirmPassword);
+            if (response.status === 200) {
+                sessionStorage.setItem('access-token', response.token);
+                navigate('/dashboard');
+            } else {
+
+                setError(response.message);
+            }
         }
     }
 
@@ -61,13 +79,19 @@ export default function Signup() {
                     </div>
                 </div>
                 <div className='btns-div'>
-                    <button type='submit' className='btn ingresar-btn'>Registrarse</button>
                     <button type='button' className='btn limpiar-btn' onClick={handleClear}>Limpiar</button>
+                    <button type='submit' className='btn ingresar-btn'>Registrarse</button>
                 </div>
                 <div className='anchors-div'>
                     <Link to="/login" className='anchor'>¿Ya tienes una cuenta? Inicia sesión aquí</Link> {/* falta poner la dirección*/}
                 </div>
             </form>
+            {/* CARTELES ------------------------------------------------------------------------------------------------------------------------ */}
+            {/* <div>
+                <div>
+                    <h3>CONTRASEÑAS</h3>
+                </div>
+            </div> */}
         </main>
     )
 }

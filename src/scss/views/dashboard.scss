@@ -1,0 +1,465 @@
+.dashboard-main {
+    height: 90vh;
+    display: flex;
+    position: relative;
+    .left-section {
+        width: 50%;
+        background-color: #050505;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+        padding: 5rem 0rem;
+        .general-balance-article {
+            height: 45%;
+            width: 60%;
+            border-radius: 15px;
+            box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.9);
+            background-color: #1a1a1a;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            overflow: hidden;
+            .title-div {
+                height: 20%;
+                width: 100%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                border-bottom: solid 1px #333333;
+                padding: 0rem 1.5rem;
+                .title {
+                    font-size: 2.5rem;
+                    font-family: "Lora", serif;
+                    font-weight: 600;
+                    color: #ececec;
+                    text-decoration: none;
+                    text-align: center;
+                }
+            }
+            .balance-div {
+                height: 80%;
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                gap: .5rem;
+                .text {
+                    font-size: 5rem;
+                    display: flex;
+                    gap: 1rem;
+                }
+                .sub-text {
+                    font-size: 2.5rem;
+                }
+                .lends {
+                    color: rgb(97, 211, 82);
+                }
+                .owes {
+                    color: #db3737;
+                }
+            }
+        }
+        .friends-article {
+            height: 45%;
+            width: 60%;
+            background-color: #1a1a1a;
+            border-radius: 15px;
+            box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.9);
+            overflow: hidden;
+            .title-div {
+                height: 20%;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                border-bottom: solid 1px #333333;
+                padding: 0rem 1.5rem;
+                .title {
+                    font-size: 2.5rem;
+                    font-family: "Lora", serif;
+                    font-weight: 600;
+                    color: #ececec;
+                    text-decoration: none;
+                    text-align: center;
+                }
+                .add-friend-btn {
+                    font-size: 1.75rem;
+                    font-family: "Manrope", serif;
+                    font-weight: 500;
+                    color: #ececec;
+                    text-decoration: none;
+                    text-align: center;
+                    background-color: #131313;
+                    border: none;
+                    border-radius: 5px;
+                    display: flex;
+                    align-items: center;
+                    gap: 1.5rem;
+                    padding: .5rem;
+                    transition: ease .3s;
+                    cursor: pointer;
+                    &:hover {
+                        background-color: #010101;
+                    }
+                    .img {
+                        height: 2rem;
+                    }
+                }
+            }
+            .friends-div {
+                height: 80%;
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+                justify-content: start;
+                align-items: start;
+                gap: 2rem;
+                padding: 1.5rem;
+                overflow-y: auto;
+                overflow-x: hidden;
+                .div {
+                    display: flex;
+                    justify-content: start;
+                    align-items: center;
+                    gap: 1rem;
+                    cursor: pointer;
+                    .img {
+                        height: 1.75rem;
+                    }
+                    .text {
+                        font-size: 1.75rem;
+                        font-family: "Manrope", serif;
+                        font-weight: 500;
+                        color: #ececec;
+                        text-decoration: none;
+                        text-align: center;
+                    }
+                }
+            }
+        }
+    }
+    .right-section {
+        height: auto;
+        width: 50%;
+        display: flex;
+        flex-direction: column;
+        .title-article {
+            height: 10%;
+            border-bottom: solid 1px #333333;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0rem 3rem;
+            .title {
+                font-size: 3rem;
+                font-family: "Lora", serif;
+                font-weight: 600;
+                color: #ececec;
+                text-decoration: none;
+                text-align: center;
+            }
+            .create-project-btn {
+                background-color: #030303;
+                border-radius: 5px;
+                display: flex;
+                align-items: center;
+                gap: 1.5rem;
+                padding: 1rem 1.5rem;
+                transition: ease .3s;
+                cursor: pointer;
+                &:hover {
+                    background-color: #c267f2;
+                    transition: ease .3s;
+                }
+                .img {
+                    height: 2rem;
+                }
+            }
+        }
+        .projects-article {
+            height: 90%;
+            display: flex;
+            flex-direction: column;
+            justify-content: start;
+            align-items: start;
+            gap: 2rem;
+            padding: 3rem 3rem 0rem 3rem;
+            .project-link {
+                width: 100%;
+                background-color: #202020;
+                border-radius: 5px;
+                box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.9);
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 2rem 1.5rem;
+                position: relative;
+                .project-name {
+                    font-size: 2rem;
+                    font-family: "Manrope", serif;
+                    font-weight: 500;
+                    color: #ececec;
+                    text-decoration: none;
+                    text-align: center;
+                    transition: transform 0.3s ease;
+                }
+                .project-balance {
+                    transition: transform 0.3s ease;
+                }
+                .lends {
+                    color: rgb(97, 211, 82);
+                }
+                .owes {
+                    color: #db3737;
+                }
+                &:hover {
+                    .project-name {
+                        animation: pulse-effect 0.4s ease-in-out; // Activa la animación
+                    }
+                    .project-balance {
+                        animation: bounce-effect 0.5s ease-in-out; // Activa la animación
+                    }
+                }
+            }
+        }
+    }
+}
+
+@keyframes bounce-effect {
+    0% {
+        transform: translateX(0); // Posición inicial
+    }
+    25% {
+        transform: translateX(-10px); // Mover hacia la izquierda
+    }
+    50% {
+        transform: translateX(0px); // Golpe contra la derecha
+    }
+    75% {
+        transform: translateX(-5px); // Rebote hacia la izquierda
+    }
+    100% {
+        transform: translateX(0); // Vuelve al inicio
+    }
+}
+
+@keyframes pulse-effect {
+    0% {
+        transform: scale(1); // Tamaño original
+    }
+    50% {
+        transform: scale(1.1); // Tamaño aumentado
+    }
+    100% {
+        transform: scale(1); // Regresa al tamaño original
+    }
+}
+
+// RESPONSIVE DESIGN --------------------------------------------------------------------------------------------------------------------------------
+@media (max-width: 1439px) {
+    .dashboard-main {
+        .left-section {
+            .general-balance-article {
+                width: 50vh;
+            }
+            .friends-article {
+                width: 50vh;
+            }
+        }
+    }
+}
+
+@media (max-width: 1023px) {
+    .dashboard-main {
+        height: auto;
+        width: 100%;
+        flex-direction: column;
+        .left-section {
+            height: auto;
+            width: 100%;
+            gap: 5rem;
+            .general-balance-article {
+                height: 35vh;
+            }
+            .friends-article {
+                height: 35vh;
+            }
+        }
+        .right-section {
+            width: 100%;
+            .title-article {
+                padding-bottom: 2.5rem;
+                margin-top: 5rem;
+            }
+            .projects-article {
+                margin-bottom: 10rem;
+            }
+        }
+    }
+}
+
+@media (max-width: 767px) {
+
+}
+
+@media (max-width: 550px) {
+    .dashboard-main {
+        .left-section {
+            .general-balance-article {
+                width: 80vw;
+                .title-div {
+                    .title {
+                    font-size: 2rem;
+                    }
+                }
+                
+            }
+            .friends-article {
+                width: 80vw;
+                .title-div { 
+                    .title {
+                        font-size: 2rem;
+                    }
+                    .add-friend-btn {
+                        font-size: 1.5rem;
+                    }
+                }
+                .friends-div {
+                    .div {
+                        .img {
+                            height: 1.5rem;
+                        }
+                        .text {
+                            font-size: 1.5rem;
+                        }
+                    }
+                }
+            }
+        }
+        .right-section {
+            width: 100%;
+            .title-article {
+                padding-bottom: 2.5rem;
+                margin-top: 5rem;
+            }
+            .projects-article {
+                margin-bottom: 10rem;
+                .project-link {
+                    .project-name {
+                        font-size: 1.75rem;
+                    }
+                    .project-balance {
+                        font-size: 1.5rem;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 479px) {
+    .dashboard-main {
+        .left-section {
+            .general-balance-article {
+                .title-div {
+                    .title {
+                    font-size: 1.75rem;
+                    }
+                }
+            }
+        }
+        .right-section {
+            .projects-article {
+                margin-bottom: 10rem;
+            }
+        }
+    }
+}
+
+@media (max-width: 365px) {
+    .dashboard-main {
+        .left-section {
+            .general-balance-article {
+                height: 30vh;
+                .title-div {
+                    .title {
+                    font-size: 1.5rem;
+                    }
+                }
+                .balance-div {
+                    .text {
+                        font-size: 3.5rem;
+                    }
+                    .sub-text {
+                        font-size: 2.5rem;
+                    }
+                }
+            }
+            .friends-article {
+                height: 30vh;
+                .title-div {
+                    .add-friend-btn{ 
+                        img {
+                            display: none;
+                        }
+                    }
+                }
+            }
+        }
+        .right-section {
+            .title-article {
+                .create-project-btn {
+                    .img {
+                        display: none;
+                    }
+                }
+            }
+            .project-link {
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                gap: 1rem;
+            }
+        }
+    }
+}
+
+@media (max-width: 300px) {
+    .dashboard-main {
+        .left-section {
+            .general-balance-article {
+                height: 30vh;
+                .balance-div {
+                    .text {
+                        font-size: 3rem;
+                    }
+                    .sub-text {
+                        font-size: 2rem;
+                    }
+                }
+            }
+            .friends-article {
+                height: 30vh;
+                .title-div {
+                    height: 30%;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
+                }
+                .friends-div {
+                    height: 70%;
+                }
+            }
+        }
+        .right-section {
+            .title-article {
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                gap: 2rem;
+            }
+        }
+    }
+}
