@@ -1,6 +1,7 @@
 .project-main {
     height: 100vh;
     display: flex;
+    position: relative;
     .left-section {
         width: 50%;
         display: flex;
@@ -40,6 +41,41 @@
                     cursor: pointer;
                     &:hover {
                         background-color: #010101;
+                    }
+                    .img {
+                        height: 2rem;
+                    }
+                }
+                .project-name-input {
+                    font-size: 4rem;
+                    font-family: "Lora", serif;
+                    font-weight: 600;
+                    color: #ececec;
+                    text-decoration: none;
+                    text-align: start;
+                    background-color: #111111;
+                    border: solid 1px #333333;
+                    border-radius: 5px;
+                }
+                .save-btn {
+                    font-size: 1.75rem;
+                    font-family: "Manrope", serif;
+                    font-weight: 500;
+                    color: #ececec;
+                    text-decoration: none;
+                    text-align: center;
+                    background-color: #a15ec5;
+                    border: none;
+                    border-radius: 5px;
+                    display: flex;
+                    align-items: center;
+                    gap: 1.5rem;
+                    padding: 1rem;
+                    transition: ease .3s;
+                    cursor: pointer;
+                    &:hover {
+                        background-color: #c267f2;
+                        transition: ease .3s;
                     }
                     .img {
                         height: 2rem;
@@ -420,5 +456,17 @@
                 }
             }
         }
+    }
+    .overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background-color: rgba(0, 0, 0, 0.3);
+        display: flex;
+        align-items: center; 
+        justify-content: center;
+        z-index: 1000;
     }
 }

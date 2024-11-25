@@ -6,6 +6,9 @@
 @use './views/createProject';
 @use './views/project';
 
+@use './components/addBill';
+@use './components/pay';
+
 // GENERALES
 * {
     padding: 0;
@@ -69,6 +72,7 @@ a, p, label {
             }
             .purple {
                 background-color: #a15ec5;
+                transition: ease .3s;
                 &:hover {
                     background-color: #c267f2;
                     transition: ease .3s;
@@ -100,18 +104,23 @@ a, p, label {
                 justify-content: center;
                 align-items: center;
                 gap: 2rem;
-                .user-name {
+                .user-name-btn {
                     font-family: "Manrope", serif;
                     font-size: 1.5rem;
                     color: #ececec;
                     background: none;
                     border: none;
+                    cursor: pointer;
                 }
-                .user-img {
+                .user-img-btn {
                     height: 5rem;
                     width: 5rem;
                     border: none;
                     border-radius: 100%;
+                    cursor: pointer;
+                    .user-img {
+                        height: 100%;
+                    }
                 }
             }
         }

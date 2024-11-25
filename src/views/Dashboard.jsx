@@ -1,40 +1,84 @@
 import React, { useEffect, useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
+import Swal from 'sweetalert2';
+
 import create from '../assets/icons/create.png';
 import addFriend from '../assets/icons/add-firend.png';
-import profile from '../assets/icons/profile1.png';
+import profile from '../assets/icons/profile.png';
 
 import fetchFriends from '../api/getFriendsFromUserById';
 import fetchProjects from '../api/getProjectsFromUserById';
-// import fetchBalance from '../api/balance';
+import validateToken from '../api/validateToken';
 
 export default function Dashboard() {
+    // obtener el token
+    const accessToken = sessionStorage.getItem('access-token');
+
+    // cargar información del usuario
     const [friends, setFriends] = useState([]);
     const [projects, setProjects] = useState([]);
+    const navigate = useNavigate();
 
+    // AMIGOS
     useEffect(() => {
         (async () => {
             try {
                 // cargar amigos
-                const friendsResponse = await fetchFriends();
-                if (friendsResponse.status === 200) {
-                    setFriends(friendsResponse.body.friendsList); // actualiza el estado de amigos
-                } else {
-                    console.error("Error al obtener amigos", friendsResponse.status);
-                }
-    
-                // cargar proyectos
-                const projectsResponse = await fetchProjects();
-                if (projectsResponse.status === 200) {
-                    setProjects(projectsResponse.body.projectsList); // actualiza el estado de proyectos
-                } else {
-                    console.error("Error al obtener proyectos", projectsResponse.status);
+                const response = await fetchFriends(accessToken, setFriends);
+                if (response.status === 200) {
+                    navigate('/login');
                 }
             } catch (error) {
                 console.error("Error en la llamada a las APIs:", error);
             }
         })();
-    }, []);
+    }, [accessToken, navigate]);
+    // PROYECTOS
+    useEffect(() => {
+        (async () => {
+            try {
+                // cargar proyectos
+                const response = await fetchProjects(accessToken, setProjects);
+                if (response.status === 200) {
+                    navigate('/login');
+                }
+            } catch (error) {
+                console.error("Error en la llamada a las APIs:", error);
+            }
+        })();
+    }, [accessToken, navigate]);
+
+    // crear proyecto
+    const handleCreateProject = async () => {
+        try {
+            // cargar proyectos
+            const response = await validateToken(accessToken);
+            if (response.status === 200) {
+                navigate('/createProject');
+            } else {
+                Swal.fire({
+                    icon: "warning",
+                    title: "Sesión vencida",
+                    text: "La sesión se ha vencido, deberás ingresar nuevamente, ¡Gracias!",
+                    customClass: {
+                        popup: "different-passwords-container",   // clase para el contenedor principal
+                        title: "different-passwords-title",       // clase para el título
+                        confirmButton: "different-passwords-btn", // clase para el botón de confirmación
+                        htmlContainer: "different-passwords-text" // clase para el contenido
+                    },
+                    allowOutsideClick: false, // Desactiva clics fuera de la alerta.
+                    allowEscapeKey: false,    // Desactiva Escape.
+                    showConfirmButton: false  // Quita el botón de confirmación.
+                });
+                
+                setTimeout(() => {
+                    navigate('/login');
+                }, 3000);
+            }
+        } catch (error) {
+            console.error("Error en la llamada a las APIs:", error);
+        }
+    }
 
     return (
         <main className='dashboard-main'>
@@ -96,7 +140,7 @@ export default function Dashboard() {
             <section className='right-section'>
                 <article className='title-article'>
                     <h3 className='title'>Proyectos</h3>
-                    <Link className='create-project-btn' to='/createProject'><img src={create} alt="Crear proyecto" className='img' /> CREAR</Link>
+                    <button type='button' onClick={handleCreateProject} className='create-project-btn'><img src={create} alt="Crear proyecto" className='img' /> CREAR</button>
                 </article>
                 <article className="projects-article"> {/* lista de proyectos */}
                     {/* {projects.map(project => (

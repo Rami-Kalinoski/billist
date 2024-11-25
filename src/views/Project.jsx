@@ -4,6 +4,8 @@ import getProjectById from '../api/getProjectById';
 import editIcon from '../assets/icons/edit.png';
 import createIcon from '../assets/icons/create.png';
 import profileIcon from '../assets/icons/profile.png';
+import AddBill from '../components/AddBill';
+import Pay from '../components/Pay';
 
 export default function Project() {
     // cargar información del proyecto
@@ -34,8 +36,27 @@ export default function Project() {
         console.log("¡Ha ocurrido un error! No pudimos encontrar el proyecto. Porfavor, intenta de nuevo más tarde.");
     }
 
+    // estado para manejar la edición del nombre del proyecto
+    const [editing, setEditing] = useState(false);
+    const [projectName, setProjectName] = useState(''); // Para almacenar el nombre editable
+
+    useEffect(() => {
+        if (project) {
+            setProjectName(project.name); // inicializar el nombre editable con el del proyecto
+        }
+    }, [project]);
+
+    const handleSaveProjectName = () => {
+        // simulamos la acción de guardar los cambios del nombre del proyecto
+        setEditing(false);
+    };
+
+    // agregar gasto
+    const [addBill, setAddBill] = useState('hide');
+
     // sección derecha
     const [detail, setDetail] = useState('members');
+    const [pagar, setPagar] = useState('hide');
 
     return (
         <main className='project-main'>
@@ -44,8 +65,36 @@ export default function Project() {
                 <article className='title-article'>
                     <div className='top-div'>
                         {/* <h3>project.name</h3> */}
-                        <h3 className='title'>Cancún 2024</h3>
-                        <button type='button' className='edit-btn'><img src={editIcon} alt="Lápiz" className='img' /> Editar</button>
+                        {/* <h3 className='title'>Cancún 2024</h3>
+                        <button type='button' className='edit-btn'><img src={editIcon} alt="Lápiz" className='img' /> Editar</button> */}
+                        {!editing ? (
+                            <>
+                                <h3 className='title'>{projectName || 'Cancún 2024'}</h3>
+                                <button
+                                    type='button'
+                                    className='edit-btn'
+                                    onClick={() => setEditing(true)}
+                                >
+                                    <img src={editIcon} alt="Lápiz" className='img' /> Editar
+                                </button>
+                            </>
+                        ) : (
+                            <>
+                                <input
+                                    type='text'
+                                    className='project-name-input'
+                                    value={projectName}
+                                    onChange={(e) => setProjectName(e.target.value)}
+                                />
+                                <button
+                                    type='button'
+                                    className='save-btn'
+                                    onClick={handleSaveProjectName}
+                                >
+                                    Guardar cambios
+                                </button>
+                            </>
+                        )}
                     </div>
                     <div className='balance-div'>
                         {/* <p
@@ -70,7 +119,7 @@ export default function Project() {
                 <article className='bills-article'>
                     <div className='title-div'>
                         <h3 className='title'>Gastos</h3>
-                        <button type='button' className='add-bill-btn'><img src={createIcon} alt="Suma" className='img' /> añadir gasto</button>
+                        <button type='button' onClick={()=>{setAddBill('show')}} className='add-bill-btn'><img src={createIcon} alt="Suma" className='img' /> añadir gasto</button>
                     </div>
                     <section className='bills-section'>
                         {/* HACER LA CARGA REAL -------------------------------------------------------------------------------------------- */}
@@ -197,26 +246,40 @@ export default function Project() {
                             <p className='name'><img src={profileIcon} alt='Integrante' className='img' /> Carlos</p>
                             <div className="btn-div">
                                 <p className='detail'>aún le debes $2000.00</p>
-                                <button type="button" className='btn'>PAGAR</button>
+                                <button type="button" className='btn' onClick={()=>{setPagar('show')}}>PAGAR</button>
                             </div>
                         </div>
                         <div className='member'>
                             <p className='name'><img src={profileIcon} alt='Integrante' className='img' /> Susana</p>
                             <div className="btn-div">
                                 <p className='detail'>aún le debes $1000.00</p>
-                                <button type="button" className='btn'>PAGAR</button>
+                                <button type="button" className='btn' onClick={()=>{setPagar('show')}}>PAGAR</button>
                             </div>
                         </div>
                         <div className='member'>
                             <p className='name'><img src={profileIcon} alt='Integrante' className='img' /> Carlos</p>
                             <div className="btn-div">
                                 <p className='detail'>aún le debes $2000.00</p>
-                                <button type="button" className='btn'>PAGAR</button>
+                                <button type="button" className='btn' onClick={()=>{setPagar('show')}}>PAGAR</button>
                             </div>
                         </div>
                     </article>
                 )}
             </section>
+            {/* AÑADIR GASTO -------------------------------------------------------------------------------------------------------------------- */}
+            {addBill === 'show' && (
+                <div>
+                    <div className='overlay'></div>
+                    <AddBill project={project} setAddBill={setAddBill}></AddBill>
+                </div>
+            )}
+            {/* PAGAR --------------------------------------------------------------------------------------------------------------------------- */}
+            {pagar === 'show' && (
+                <div>
+                    <div className='overlay'></div>
+                    <Pay project={project} setPagar={setPagar}></Pay>
+                </div>
+            )}
         </main>
     )
 }

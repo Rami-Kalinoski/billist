@@ -3,6 +3,7 @@ import {Link, Outlet} from 'react-router-dom';
 import title from '../assets/title.png';
 import logo from '../assets/logo.png';
 import location from '../assets/icons/location.png';
+import profile from '../assets/icons/profile.png';
 
 export default function LoggedLayout() {
     const logged = JSON.parse(localStorage.getItem('isLogged'));
@@ -23,8 +24,8 @@ export default function LoggedLayout() {
                         <div className='logged-div'>
                         <Link to='/dashboard' className='dashboard-btn'>Ir al dashboard</Link>
                         <div className='user-btn-div'>
-                            <button type='button' className='user-name'>VARIABLE</button> {/* falta traer y poner el nombre del usuario*/}
-                            <button type='button' className='user-img'>VARIABLE</button> {/* falta traer y poner la foto del usuario*/}
+                            <button type='button' className='user-name-btn'>VARIABLE</button> {/* falta traer y poner el nombre del usuario*/}
+                            <button type='button' className='user-img-btn'><img src={profile} alt="Foto de perfil" className='user-img' /></button> {/* falta traer y poner la foto del usuario*/}
                         </div>
                     </div>
                     )}

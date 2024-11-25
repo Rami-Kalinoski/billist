@@ -243,6 +243,57 @@
   text-decoration: solid 1px #ec9dec;
 }
 
+.different-passwords-container {
+  height: 50vh;
+  width: 50vh;
+  background-color: #010101;
+  border-radius: 15px;
+  padding: 5rem;
+}
+.different-passwords-container .swal2-icon {
+  height: 15rem;
+  width: 15rem;
+  font-size: 2.5rem;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto 20px;
+}
+.different-passwords-container .different-passwords-title {
+  font-size: 3rem;
+  font-family: "Lora", serif;
+  font-weight: 800;
+  color: #ececec;
+  text-decoration: none;
+  text-align: center;
+}
+.different-passwords-container .different-passwords-text {
+  font-size: 1.5rem;
+  font-family: "Manrope", serif;
+  font-weight: 600;
+  color: #ececec;
+  text-decoration: none;
+  text-align: center;
+}
+.different-passwords-container .different-passwords-btn {
+  font-size: 1.5rem;
+  font-family: "Manrope", serif;
+  font-weight: 600;
+  color: #ececec;
+  text-decoration: none;
+  text-align: center;
+  padding: 1rem 1.5rem;
+  border: none;
+  border-radius: 5px;
+  background-color: #222222;
+  transition: ease 0.3s;
+}
+.different-passwords-container .different-passwords-btn:hover {
+  background-color: #c267f2;
+  transition: ease 0.3s;
+}
+
 @media (max-width: 1439px) {
   .signup-main .form {
     width: 50vw;
@@ -600,7 +651,14 @@
   text-align: center;
 }
 .dashboard-main .right-section .title-article .create-project-btn {
+  font-size: 1.75rem;
+  font-family: "Manrope", serif;
+  font-weight: 500;
+  color: #ececec;
+  text-decoration: none;
+  text-align: center;
   background-color: #030303;
+  border: none;
   border-radius: 5px;
   display: flex;
   align-items: center;
@@ -984,6 +1042,7 @@
 .project-main {
   height: 100vh;
   display: flex;
+  position: relative;
 }
 .project-main .left-section {
   width: 50%;
@@ -1030,6 +1089,41 @@
   background-color: #010101;
 }
 .project-main .left-section .title-article .top-div .edit-btn .img {
+  height: 2rem;
+}
+.project-main .left-section .title-article .top-div .project-name-input {
+  font-size: 4rem;
+  font-family: "Lora", serif;
+  font-weight: 600;
+  color: #ececec;
+  text-decoration: none;
+  text-align: start;
+  background-color: #111111;
+  border: solid 1px #333333;
+  border-radius: 5px;
+}
+.project-main .left-section .title-article .top-div .save-btn {
+  font-size: 1.75rem;
+  font-family: "Manrope", serif;
+  font-weight: 500;
+  color: #ececec;
+  text-decoration: none;
+  text-align: center;
+  background-color: #a15ec5;
+  border: none;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 1rem;
+  transition: ease 0.3s;
+  cursor: pointer;
+}
+.project-main .left-section .title-article .top-div .save-btn:hover {
+  background-color: #c267f2;
+  transition: ease 0.3s;
+}
+.project-main .left-section .title-article .top-div .save-btn .img {
   height: 2rem;
 }
 .project-main .left-section .title-article .balance-div {
@@ -1403,6 +1497,363 @@
   background-color: rgb(88, 153, 80);
   transition: ease 0.3s;
 }
+.project-main .overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.addbill-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  z-index: 1001;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.addbill-container .addbill-form {
+  height: 70vh;
+  width: 30vw;
+  border-radius: 15px;
+  background-color: #010101;
+  display: flex;
+  flex-direction: column;
+}
+.addbill-container .addbill-form .title-section {
+  height: 15%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  border-bottom: solid 1px #333333;
+}
+.addbill-container .addbill-form .title-section .title {
+  font-size: 3rem;
+  font-family: "Lora", serif;
+  font-weight: 600;
+  color: #ececec;
+  text-decoration: none;
+  text-align: center;
+}
+.addbill-container .addbill-form .title-section .subtitle {
+  font-size: 1.75rem;
+  font-family: "Manrope", serif;
+  font-weight: 500;
+  color: #ececec;
+  text-decoration: none;
+}
+.addbill-container .addbill-form .bottom-section {
+  height: 85%;
+  display: flex;
+  flex-direction: column;
+  padding: 3rem 3rem;
+}
+.addbill-container .addbill-form .bottom-section .inputs-article {
+  height: 30%;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: start;
+  gap: 1rem;
+}
+.addbill-container .addbill-form .bottom-section .inputs-article .input {
+  width: 100%;
+  font-size: 1.75rem;
+  font-family: "Manrope", serif;
+  font-weight: 500;
+  color: #ececec;
+  text-decoration: none;
+  background-color: #010101;
+  border: solid 1px #333333;
+  border-radius: 5px;
+  padding: 1rem 1.5rem;
+}
+.addbill-container .addbill-form .bottom-section .inputs-article .amount-span {
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+.addbill-container .addbill-form .bottom-section .inputs-article .amount-span .text {
+  width: 5%;
+  font-size: 1.75rem;
+  font-family: "Manrope", serif;
+  font-weight: 500;
+  color: #ececec;
+  text-decoration: none;
+}
+.addbill-container .addbill-form .bottom-section .inputs-article .amount-span .amount-input {
+  width: 95%;
+  font-size: 1.75rem;
+  font-family: "Manrope", serif;
+  font-weight: 500;
+  color: #ececec;
+  text-decoration: none;
+  background-color: #010101;
+  border: solid 1px #333333;
+  border-radius: 5px;
+  padding: 1rem 1.5rem;
+}
+.addbill-container .addbill-form .bottom-section .distribution-article {
+  height: 30%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: start;
+  gap: 1rem;
+}
+.addbill-container .addbill-form .bottom-section .distribution-article .div {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  gap: 1rem;
+}
+.addbill-container .addbill-form .bottom-section .distribution-article .div .text {
+  font-size: 2rem;
+  font-family: "Manrope", serif;
+  font-weight: 500;
+  color: #ececec;
+  text-decoration: none;
+}
+.addbill-container .addbill-form .bottom-section .distribution-article .div .btn {
+  font-size: 1.75rem;
+  font-family: "Manrope", serif;
+  font-weight: 500;
+  color: #ececec;
+  text-decoration: none;
+  background-color: #222222;
+  border: none;
+  border-radius: 5px;
+  padding: 0rem 0.5rem;
+  transition: ease 0.3s;
+  cursor: pointer;
+}
+.addbill-container .addbill-form .bottom-section .distribution-article .div .btn:hover {
+  background-color: #444444;
+  transition: ease 0.3s;
+}
+.addbill-container .addbill-form .bottom-section .buttons-article {
+  height: 40%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+.addbill-container .addbill-form .bottom-section .buttons-article .file-div {
+  width: 60%;
+  background-color: #111111;
+  border-radius: 5px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 1rem;
+}
+.addbill-container .addbill-form .bottom-section .buttons-article .file-div .file-name {
+  font-size: 1.75rem;
+  font-family: "Manrope", serif;
+  font-weight: 500;
+  color: #ececec;
+  text-decoration: none;
+}
+.addbill-container .addbill-form .bottom-section .buttons-article .file-div .delete-btn {
+  font-size: 1.75rem;
+  font-family: "Manrope", serif;
+  font-weight: 500;
+  color: #ececec;
+  text-decoration: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+.addbill-container .addbill-form .bottom-section .buttons-article .addfile-div {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.addbill-container .addbill-form .bottom-section .buttons-article .addfile-div .addfile-input {
+  display: none;
+}
+.addbill-container .addbill-form .bottom-section .buttons-article .addfile-div .addfile-btn {
+  width: 60%;
+  font-size: 1.75rem;
+  font-family: "Manrope", serif;
+  font-weight: 500;
+  color: #ececec;
+  text-decoration: none;
+  background-color: #010101;
+  border: solid 1px #333333;
+  border-radius: 5px;
+  padding: 0.5rem 1rem;
+  transition: ease 0.3s;
+  cursor: pointer;
+}
+.addbill-container .addbill-form .bottom-section .buttons-article .addfile-div .addfile-btn:hover {
+  background-color: #111111;
+  transition: ease 0.3s;
+}
+.addbill-container .addbill-form .bottom-section .buttons-article .addbill-btn {
+  width: 60%;
+  font-size: 1.75rem;
+  font-family: "Manrope", serif;
+  font-weight: 500;
+  color: #ececec;
+  text-decoration: none;
+  background-color: #333333;
+  border: none;
+  border-radius: 5px;
+  padding: 0.5rem 1rem;
+  transition: ease 0.3s;
+  cursor: pointer;
+}
+.addbill-container .addbill-form .bottom-section .buttons-article .addbill-btn:hover {
+  background-color: #c267f2;
+  transition: ease 0.3s;
+}
+.addbill-container .addbill-form .bottom-section .buttons-article .cancel-btn {
+  width: 60%;
+  font-size: 1.75rem;
+  font-family: "Manrope", serif;
+  font-weight: 500;
+  color: #ececec;
+  text-decoration: none;
+  background-color: #010101;
+  border: solid 1px #333333;
+  border-radius: 5px;
+  padding: 0.5rem 1rem;
+  transition: ease 0.3s;
+  cursor: pointer;
+}
+.addbill-container .addbill-form .bottom-section .buttons-article .cancel-btn:hover {
+  background-color: #db3737;
+  border: solid 1px #db3737;
+  transition: ease 0.3s;
+}
+
+.pay-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  z-index: 1001;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.pay-container .pay-form {
+  height: 40vh;
+  width: 30vw;
+  border-radius: 15px;
+  background-color: #010101;
+  display: flex;
+  flex-direction: column;
+}
+.pay-container .pay-form .header-section {
+  height: 20%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  border-bottom: solid 1px #333333;
+}
+.pay-container .pay-form .header-section .text {
+  font-size: 2.5rem;
+  font-family: "Manrope", serif;
+  font-weight: 500;
+  color: #ececec;
+  text-decoration: none;
+}
+.pay-container .pay-form .amount-section {
+  height: 40%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 3rem 3rem;
+}
+.pay-container .pay-form .amount-section .amount-div {
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+.pay-container .pay-form .amount-section .amount-div .text {
+  width: 5%;
+  font-size: 2rem;
+  font-family: "Manrope", serif;
+  font-weight: 500;
+  color: #ececec;
+  text-decoration: none;
+}
+.pay-container .pay-form .amount-section .amount-div .amount-input {
+  width: 95%;
+  font-size: 1.75rem;
+  font-family: "Manrope", serif;
+  font-weight: 500;
+  color: #ececec;
+  text-decoration: none;
+  background-color: #010101;
+  border: solid 1px #333333;
+  border-radius: 5px;
+  padding: 1rem 1.5rem;
+}
+.pay-container .pay-form .btns-section {
+  height: 40%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+.pay-container .pay-form .btns-section .pay-btn {
+  width: 60%;
+  font-size: 1.75rem;
+  font-family: "Manrope", serif;
+  font-weight: 500;
+  color: #ececec;
+  text-decoration: none;
+  background-color: #333333;
+  border: none;
+  border-radius: 5px;
+  padding: 0.5rem 1rem;
+  transition: ease 0.3s;
+  cursor: pointer;
+}
+.pay-container .pay-form .btns-section .pay-btn:hover {
+  background-color: #c267f2;
+  transition: ease 0.3s;
+}
+.pay-container .pay-form .btns-section .cancel-btn {
+  width: 60%;
+  font-size: 1.75rem;
+  font-family: "Manrope", serif;
+  font-weight: 500;
+  color: #ececec;
+  text-decoration: none;
+  background-color: #010101;
+  border: solid 1px #333333;
+  border-radius: 5px;
+  padding: 0.5rem 1rem;
+  transition: ease 0.3s;
+  cursor: pointer;
+}
+.pay-container .pay-form .btns-section .cancel-btn:hover {
+  background-color: #db3737;
+  border: solid 1px #db3737;
+  transition: ease 0.3s;
+}
 
 * {
   padding: 0;
@@ -1468,6 +1919,7 @@ a, p, label {
 }
 .header .btns-container .btns-div .purple {
   background-color: #a15ec5;
+  transition: ease 0.3s;
 }
 .header .btns-container .btns-div .purple:hover {
   background-color: #c267f2;
@@ -1500,18 +1952,23 @@ a, p, label {
   align-items: center;
   gap: 2rem;
 }
-.header .btns-container .logged-div .user-btn-div .user-name {
+.header .btns-container .logged-div .user-btn-div .user-name-btn {
   font-family: "Manrope", serif;
   font-size: 1.5rem;
   color: #ececec;
   background: none;
   border: none;
+  cursor: pointer;
 }
-.header .btns-container .logged-div .user-btn-div .user-img {
+.header .btns-container .logged-div .user-btn-div .user-img-btn {
   height: 5rem;
   width: 5rem;
   border: none;
   border-radius: 100%;
+  cursor: pointer;
+}
+.header .btns-container .logged-div .user-btn-div .user-img-btn .user-img {
+  height: 100%;
 }
 
 .footer {

@@ -115,6 +115,57 @@
     }
 }
 
+.different-passwords-container {
+    height: 50vh;
+    width: 50vh;
+    background-color: #010101;
+    border-radius: 15px;
+    padding: 5rem;
+    .swal2-icon {
+        height: 15rem;
+        width: 15rem;               // Tamaño del contenedor del ícono
+        font-size: 2.5rem;         // Tamaño del ícono
+        border-radius: 50%;        // Convertir en círculo
+        display: flex;             // Asegurar el posicionamiento
+        justify-content: center;
+        align-items: center;
+        margin: 0 auto 20px;       // Centrar y agregar espacio inferior
+    }
+    .different-passwords-title {
+        font-size: 3rem;
+        font-family: "Lora", serif;
+        font-weight: 800;
+        color: #ececec;
+        text-decoration: none;
+        text-align: center;
+    }
+    .different-passwords-text {
+        font-size: 1.5rem;
+        font-family: "Manrope", serif;
+        font-weight: 600;
+        color: #ececec;
+        text-decoration: none;
+        text-align: center;
+    }
+    .different-passwords-btn {
+        font-size: 1.5rem;
+        font-family: "Manrope", serif;
+        font-weight: 600;
+        color: #ececec;
+        text-decoration: none;
+        text-align: center;
+        padding: 1rem 1.5rem;
+        border: none;
+        border-radius: 5px;
+        background-color: #222222;
+        transition: ease .3s;
+        &:hover {
+            background-color: #c267f2;
+            transition: ease .3s;
+        }
+    }
+}
+
 // RESPONSIVE DESIGN --------------------------------------------------------------------------------------------------------------------------------
 @media (max-width: 1439px) {
     .signup-main {

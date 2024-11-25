@@ -1,6 +1,7 @@
 import React, { useState, useRef } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import login from '../api/login';
+import Swal from 'sweetalert2';
 
 export default function Login() {
     // botón "limpiar"
@@ -21,12 +22,41 @@ export default function Login() {
     const handlePasswordChange = (e) => { setPassword(e.target.value); };
     const handleSubmit = async (e) => {
         e.preventDefault();
-        let response = await login(email, password);
-        if (response.status === 200) {
-            sessionStorage.setItem('access-token', response.token);
-            navigate('/dashboard');
-        } else {
-            setError(response.message);
+        try {
+            const response = await login(email, password);
+            if (response.status === 200) {
+                sessionStorage.setItem('access-token', response.token);
+                navigate('/dashboard');
+            } else if (response.message === 'cuenta inexistente') {
+                // si el email y contraseña no coinciden
+                Swal.fire({
+                    icon: "warning",
+                    title: "Cuenta inexistente",
+                    text: "El email o la contraseña son incorrectos.",
+                    customClass: {
+                        popup: "different-passwords-container",   // clase para el contenedor principal
+                        title: "different-passwords-title",       // clase para el título
+                        confirmButton: "different-passwords-btn", // clase para el botón de confirmación
+                        htmlContainer: "different-passwords-text" // clase para el contenido
+                    }
+                });
+            } else {
+                // si ocurre otro tipo de error
+                setError(response.message);
+            }
+        } catch (error) {
+            // si ocurre otro tipo de error
+            Swal.fire({
+                icon: "warning",
+                title: "Error inesperado",
+                text: "Ocurrió un problema al intentar iniciar sesión. Por favor, inténtalo más tarde.",
+                customClass: {
+                    popup: "different-passwords-container",   // clase para el contenedor principal
+                    title: "different-passwords-title",       // clase para el título
+                    confirmButton: "different-passwords-btn", // clase para el botón de confirmación
+                    htmlContainer: "different-passwords-text" // clase para el contenido
+                }
+            });
         }
     }
 

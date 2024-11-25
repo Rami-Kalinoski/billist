@@ -1,11 +1,9 @@
 import React, { useState, useRef } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import signup from '../api/signup';
+import Swal from 'sweetalert2';
 
 export default function Signup() {
-    // control de carteles
-    const [sign, setSign] = useState('none');
-
     // botón "limpiar"
     const usernameInput = useRef(null);
     const emailInput = useRef(null);
@@ -32,26 +30,80 @@ export default function Signup() {
     const handleConfirmPasswordChange = (e) => { setConfirmPassword(e.target.value); };
     const handleSubmit = async (e) => {
         e.preventDefault();
+        
         // si las contraseñas no coinciden
-        if (password!==confirmPassword) {
-            setSign('differentPasswords');
+        if (password.trim()!==confirmPassword.trim()) {
             Swal.fire({
-                title: "Sweet!",
-                text: "Modal with a custom image.",
-                icon: "error",
-                imageUrl: "https://unsplash.it/400/200",
-                imageWidth: 400,
-                imageHeight: 200,
-                imageAlt: "Custom image"
+                icon: "warning",
+                title: "Error",
+                text: "Las contraseñas no coinciden.",
+                customClass: {
+                    popup: "different-passwords-container",   // clase para el contenedor principal
+                    title: "different-passwords-title",       // clase para el título
+                    confirmButton: "different-passwords-btn", // clase para el botón de confirmación
+                    htmlContainer: "different-passwords-text" // clase para el contenido
+                }
             });
         } else {
-            let response = await signup(username, email, password, confirmPassword);
-            if (response.status === 200) {
-                sessionStorage.setItem('access-token', response.token);
-                navigate('/dashboard');
-            } else {
-
-                setError(response.message);
+            try {
+                const response = await signup(username, email, password, confirmPassword);
+                if (response.status === 200) {
+                    sessionStorage.setItem('access-token', response.token);
+                    navigate('/dashboard');
+                } else if (response.message === 'email ya existente') {
+                    // si el email ya existe
+                    Swal.fire({
+                        icon: "warning",
+                        title: "Error",
+                        text: "Este email ya tiene asociada una cuenta en Billist.",
+                        customClass: {
+                            popup: "different-passwords-container",   // clase para el contenedor principal
+                            title: "different-passwords-title",       // clase para el título
+                            confirmButton: "different-passwords-btn", // clase para el botón de confirmación
+                            htmlContainer: "different-passwords-text" // clase para el contenido
+                        }
+                    });
+                } else if (response.message === 'username ya existente') {
+                    // si el username ya existe
+                    Swal.fire({
+                        icon: "warning",
+                        title: "Error",
+                        text: "Este nombre de usuario ya existe en Billist.",
+                        customClass: {
+                            popup: "different-passwords-container",   // clase para el contenedor principal
+                            title: "different-passwords-title",       // clase para el título
+                            confirmButton: "different-passwords-btn", // clase para el botón de confirmación
+                            htmlContainer: "different-passwords-text" // clase para el contenido
+                        }
+                    });
+                } else {
+                    // si ocurre otro tipo de error
+                    setError(response.message);
+                    Swal.fire({
+                        icon: "warning",
+                        title: "Error inesperado",
+                        text: "Ocurrió un problema al intentar registrarte. Por favor, inténtalo más tarde.",
+                        customClass: {
+                            popup: "different-passwords-container",   // clase para el contenedor principal
+                            title: "different-passwords-title",       // clase para el título
+                            confirmButton: "different-passwords-btn", // clase para el botón de confirmación
+                            htmlContainer: "different-passwords-text" // clase para el contenido
+                        }
+                    });
+                }
+            } catch (error) {
+                // si ocurre otro tipo de error
+                Swal.fire({
+                    icon: "warning",
+                    title: "Error inesperado",
+                    text: "Ocurrió un problema al intentar registrarte. Por favor, inténtalo más tarde.",
+                    customClass: {
+                        popup: "different-passwords-container",   // clase para el contenedor principal
+                        title: "different-passwords-title",       // clase para el título
+                        confirmButton: "different-passwords-btn", // clase para el botón de confirmación
+                        htmlContainer: "different-passwords-text" // clase para el contenido
+                    }
+                });
             }
         }
     }
