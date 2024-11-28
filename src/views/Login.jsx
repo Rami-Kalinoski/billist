@@ -1,9 +1,11 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useContext  } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import { AuthContext } from '../context/AuthContext';
 import login from '../api/login';
 import Swal from 'sweetalert2';
 
 export default function Login() {
+    const { setIsLogged } = useContext(AuthContext);
     // botón "limpiar"
     const emailInput = useRef(null);
     const passwordInput = useRef(null);
@@ -24,8 +26,9 @@ export default function Login() {
         e.preventDefault();
         try {
             const response = await login(email, password);
-            if (response.status === 200) {
+            if (response.status === 201) {
                 sessionStorage.setItem('access-token', response.token);
+                setIsLogged(true);
                 navigate('/dashboard');
             } else if (response.message === 'cuenta inexistente') {
                 // si el email y contraseña no coinciden

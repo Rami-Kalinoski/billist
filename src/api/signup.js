@@ -3,7 +3,7 @@ const signup = async (username, email, password) => {
     myHeaders.append('Content-Type', 'application/json');
     
     var raw = JSON.stringify({
-        'username': username,
+        'name': username,
         'email': email,
         'password': password
     });
@@ -15,8 +15,10 @@ const signup = async (username, email, password) => {
         redirect: 'follow'
     };
     
-    let response = await fetch('http://localhost:8080/api/usuarios/signup', requestOptions);
+    let response = await fetch('http://localhost:3001/user/register', requestOptions);
     let jsonData = await response.json();
+    jsonData.status = response.status;
+    jsonData.message = response.statusText;
     return jsonData;
 };
 

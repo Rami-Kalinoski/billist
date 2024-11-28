@@ -1,5 +1,6 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useContext  } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
+import { AuthContext } from '../context/AuthContext';
 import Swal from 'sweetalert2';
 
 import create from '../assets/icons/create.png';
@@ -11,6 +12,7 @@ import fetchProjects from '../api/getProjectsFromUserById';
 import validateToken from '../api/validateToken';
 
 export default function Dashboard() {
+    const { setIsLogged } = useContext(AuthContext);
     // obtener el token
     const accessToken = sessionStorage.getItem('access-token');
 
@@ -25,7 +27,7 @@ export default function Dashboard() {
             try {
                 // cargar amigos
                 const response = await fetchFriends(accessToken, setFriends);
-                if (response.status === 200) {
+                if (response.status === 201) {
                     navigate('/login');
                 }
             } catch (error) {
@@ -39,7 +41,7 @@ export default function Dashboard() {
             try {
                 // cargar proyectos
                 const response = await fetchProjects(accessToken, setProjects);
-                if (response.status === 200) {
+                if (response.status === 201) {
                     navigate('/login');
                 }
             } catch (error) {
@@ -53,9 +55,10 @@ export default function Dashboard() {
         try {
             // cargar proyectos
             const response = await validateToken(accessToken);
-            if (response.status === 200) {
+            if (response.status === 201) {
                 navigate('/createProject');
             } else {
+                setIsLogged(false)
                 Swal.fire({
                     icon: "warning",
                     title: "Sesión vencida",
@@ -68,7 +71,19 @@ export default function Dashboard() {
                     },
                     allowOutsideClick: false, // Desactiva clics fuera de la alerta.
                     allowEscapeKey: false,    // Desactiva Escape.
-                    showConfirmButton: false  // Quita el botón de confirmación.
+                    showConfirmButton: false,  // Quita el botón de confirmación.
+                    timer: 2990, // cierre automático
+                    timerProgressBar: true,
+                    didOpen: () => {
+                        Swal.showLoading();
+                    },
+                    willClose: () => {
+                    }
+                    }).then((result) => {
+                    /* Read more about handling dismissals below */
+                    if (result.dismiss === Swal.DismissReason.timer) {
+                        console.log("I was closed by the timer");
+                    }
                 });
                 
                 setTimeout(() => {

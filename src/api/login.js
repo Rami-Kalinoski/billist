@@ -14,7 +14,7 @@ const login = async (email,password) => {
         redirect: 'follow'
     };
     
-    let response = await fetch("http://localhost:8080/api/usuarios/login", requestOptions);
+    let response = await fetch("http://localhost:3001/user/login", requestOptions);
     let jsonData = await response.json();
     return jsonData;
 }

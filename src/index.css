@@ -295,8 +295,60 @@
 }
 
 @media (max-width: 1439px) {
+  .signup-main {
+    height: 70vw;
+  }
   .signup-main .form {
+    height: 60vw;
     width: 50vw;
+  }
+  .different-passwords-container {
+    height: 70vh;
+    width: 100vh;
+    padding: 2.5rem;
+  }
+  .different-passwords-container .swal2-icon {
+    height: 7.5rem;
+    width: 7.5rem;
+    font-size: 2.5rem;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto 20px;
+  }
+  .different-passwords-container .different-passwords-title {
+    font-size: 2.75rem;
+    font-family: "Lora", serif;
+    font-weight: 800;
+    color: #ececec;
+    text-decoration: none;
+    text-align: center;
+  }
+  .different-passwords-container .different-passwords-text {
+    font-size: 1.25rem;
+    font-family: "Manrope", serif;
+    font-weight: 600;
+    color: #ececec;
+    text-decoration: none;
+    text-align: center;
+  }
+  .different-passwords-container .different-passwords-btn {
+    font-size: 1.5rem;
+    font-family: "Manrope", serif;
+    font-weight: 600;
+    color: #ececec;
+    text-decoration: none;
+    text-align: center;
+    padding: 1rem 1.5rem;
+    border: none;
+    border-radius: 5px;
+    background-color: #222222;
+    transition: ease 0.3s;
+  }
+  .different-passwords-container .different-passwords-btn:hover {
+    background-color: #c267f2;
+    transition: ease 0.3s;
   }
 }
 @media (max-width: 767px) {

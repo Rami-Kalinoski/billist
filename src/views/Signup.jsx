@@ -1,9 +1,12 @@
-import React, { useState, useRef } from 'react'
-import { Link, useNavigate } from 'react-router-dom'
+import React, { useState, useRef, useContext  } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import { AuthContext } from '../context/AuthContext';
 import signup from '../api/signup';
+import login from '../api/login';
 import Swal from 'sweetalert2';
 
 export default function Signup() {
+    const { setIsLogged } = useContext(AuthContext);
     // botón "limpiar"
     const usernameInput = useRef(null);
     const emailInput = useRef(null);
@@ -28,15 +31,17 @@ export default function Signup() {
     const handleEmailChange = (e) => { setEmail(e.target.value); };
     const handlePasswordChange = (e) => { setPassword(e.target.value); };
     const handleConfirmPasswordChange = (e) => { setConfirmPassword(e.target.value); };
-    const handleSubmit = async (e) => {
+    const handleSubmit = async (e) => { // REGISTRARSE
         e.preventDefault();
         
         // si las contraseñas no coinciden
         if (password.trim()!==confirmPassword.trim()) {
+            setError("Las contraseñas no coinciden.");
+            console.log("Error 1")
             Swal.fire({
                 icon: "warning",
                 title: "Error",
-                text: "Las contraseñas no coinciden.",
+                text: error,
                 customClass: {
                     popup: "different-passwords-container",   // clase para el contenedor principal
                     title: "different-passwords-title",       // clase para el título
@@ -46,16 +51,48 @@ export default function Signup() {
             });
         } else {
             try {
-                const response = await signup(username, email, password, confirmPassword);
-                if (response.status === 200) {
-                    sessionStorage.setItem('access-token', response.token);
-                    navigate('/dashboard');
-                } else if (response.message === 'email ya existente') {
+                const response = await signup(username, email, password);
+                if (response.status === 201) {
+                    const responseLogin = await login(email, password);
+                    sessionStorage.setItem('access-token', responseLogin.token);
+                    setIsLogged(true);
+                    Swal.fire({
+                        icon: "success",
+                        title: "Registro exitoso",
+                        text: "¡Usuario registrado exitosamente!",
+                        customClass: {
+                            popup: "different-passwords-container",   // clase para el contenedor principal
+                            title: "different-passwords-title",       // clase para el título
+                            confirmButton: "different-passwords-btn", // clase para el botón de confirmación
+                            htmlContainer: "different-passwords-text" // clase para el contenido
+                        },
+                        allowOutsideClick: false, // Desactiva clics fuera de la alerta.
+                        allowEscapeKey: false,    // Desactiva Escape.
+                        showConfirmButton: false,  // Quita el botón de confirmación.
+                        timer: 2990, // cierre automático
+                        timerProgressBar: true,
+                        didOpen: () => {
+                            Swal.showLoading();
+                        },
+                        willClose: () => {
+                        }
+                        }).then((result) => {
+                        /* Read more about handling dismissals below */
+                        if (result.dismiss === Swal.DismissReason.timer) {
+                            console.log("I was closed by the timer");
+                        }
+                    });
+                    setTimeout(() => {
+                        navigate('/dashboard');
+                    }, 3000);
+                } else if (response.message === 'El email ya está registrado') {
                     // si el email ya existe
+                    setError("Este email ya tiene asociada una cuenta en Billist.");
+                    console.log("Error 2")
                     Swal.fire({
                         icon: "warning",
                         title: "Error",
-                        text: "Este email ya tiene asociada una cuenta en Billist.",
+                        text: error,
                         customClass: {
                             popup: "different-passwords-container",   // clase para el contenedor principal
                             title: "different-passwords-title",       // clase para el título
@@ -63,12 +100,14 @@ export default function Signup() {
                             htmlContainer: "different-passwords-text" // clase para el contenido
                         }
                     });
-                } else if (response.message === 'username ya existente') {
+                } else if (response.message === 'Nombre de usuario en uso') {
                     // si el username ya existe
+                    setError("Este nombre de usuario ya existe en Billist.");
+                    console.log("Error 3")
                     Swal.fire({
                         icon: "warning",
                         title: "Error",
-                        text: "Este nombre de usuario ya existe en Billist.",
+                        text: error,
                         customClass: {
                             popup: "different-passwords-container",   // clase para el contenedor principal
                             title: "different-passwords-title",       // clase para el título
@@ -79,6 +118,7 @@ export default function Signup() {
                 } else {
                     // si ocurre otro tipo de error
                     setError(response.message);
+                    console.log("Error 4")
                     Swal.fire({
                         icon: "warning",
                         title: "Error inesperado",
@@ -93,6 +133,8 @@ export default function Signup() {
                 }
             } catch (error) {
                 // si ocurre otro tipo de error
+                setError(error);
+                console.log("Error 5")
                 Swal.fire({
                     icon: "warning",
                     title: "Error inesperado",
