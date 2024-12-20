@@ -1,13 +1,13 @@
 const login = async (email,password) => {
-    var myHeaders = new Headers();
+    let myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json");
     
-    var raw = JSON.stringify({
+    let raw = JSON.stringify({
         "email": email,
         "password": password
     });
     
-    var requestOptions = {
+    let requestOptions = {
         method: 'POST',
         headers: myHeaders,
         body: raw,
@@ -15,7 +15,10 @@ const login = async (email,password) => {
     };
     
     let response = await fetch("http://localhost:3001/user/login", requestOptions);
-    let jsonData = await response.json();
+    // let jsonData = await response.json();
+    // Retornar el objeto completo para manejar status y JSON
+    const jsonData = await response.json();
+    return { status: response.status, ...jsonData };
     return jsonData;
 }
 

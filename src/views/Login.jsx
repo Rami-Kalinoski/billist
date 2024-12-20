@@ -26,7 +26,7 @@ export default function Login() {
         e.preventDefault();
         try {
             const response = await login(email, password);
-            if (response.status === 201) {
+            if (response.status === 200) {
                 sessionStorage.setItem('access-token', response.token);
                 setIsLogged(true);
                 navigate('/dashboard');

@@ -1,12 +1,15 @@
-const createProject = async ( accessToken, name, description, distribution ) => {
+const createBill = async ( accessToken, projectId, description, date, totalAmount, contributors, file ) => {
     let myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json");
     myHeaders.append("Authorization", `Bearer ${accessToken}`);
-    
+
     let raw = JSON.stringify({
-        'name': name,
         'description': description,
-        'distribution': 'equals'
+        'total_amount': totalAmount,
+        'id_project': projectId,
+        'image': null,
+        'date': date,
+        'contributors': contributors
     });
     
     let requestOptions = {
@@ -16,11 +19,11 @@ const createProject = async ( accessToken, name, description, distribution ) => 
         redirect: 'follow'
     };
     
-    let response = await fetch('http://localhost:3001/project/create', requestOptions);
+    let response = await fetch('http://localhost:3001/bill/create', requestOptions);
     let jsonData = await response.json();
     jsonData.status = response.status;
     jsonData.message = response.statusText;
     return jsonData;
 };
 
-export default createProject;
+export default createBill;

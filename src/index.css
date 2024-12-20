@@ -244,8 +244,8 @@
 }
 
 .different-passwords-container {
-  height: 50vh;
-  width: 50vh;
+  height: 60vh;
+  width: 60vh;
   background-color: #010101;
   border-radius: 15px;
   padding: 5rem;
@@ -1562,6 +1562,201 @@
   z-index: 1000;
 }
 
+.addmember-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  z-index: 1001;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.addmember-container .addbill-form {
+  height: 50vh;
+  width: 30vw;
+  border-radius: 15px;
+  background-color: #010101;
+  display: flex;
+  flex-direction: column;
+  margin: 3rem 2rem;
+}
+.addmember-container .addbill-form .title-section {
+  height: 15%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  border-bottom: solid 1px #333333;
+}
+.addmember-container .addbill-form .title-section .title {
+  font-size: 3rem;
+  font-family: "Lora", serif;
+  font-weight: 600;
+  color: #ececec;
+  text-decoration: none;
+  text-align: center;
+}
+.addmember-container .addbill-form .title-section .subtitle {
+  font-size: 1.75rem;
+  font-family: "Manrope", serif;
+  font-weight: 500;
+  color: #ececec;
+  text-decoration: none;
+}
+.addmember-container .addbill-form .bottom-section {
+  height: 85%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 3rem 3rem;
+}
+.addmember-container .addbill-form .bottom-section .inputs-article {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: start;
+  gap: 1rem;
+}
+.addmember-container .addbill-form .bottom-section .inputs-article .input {
+  width: 100%;
+  font-size: 1.75rem;
+  font-family: "Manrope", serif;
+  font-weight: 500;
+  color: #ececec;
+  text-decoration: none;
+  background-color: #010101;
+  border: solid 1px #333333;
+  border-radius: 5px;
+  padding: 1rem 1.5rem;
+}
+.addmember-container .addbill-form .bottom-section .inputs-article .amount-span {
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+.addmember-container .addbill-form .bottom-section .inputs-article .amount-span .text {
+  width: 5%;
+  font-size: 1.75rem;
+  font-family: "Manrope", serif;
+  font-weight: 500;
+  color: #ececec;
+  text-decoration: none;
+}
+.addmember-container .addbill-form .bottom-section .inputs-article .amount-span .amount-input {
+  width: 95%;
+  font-size: 1.75rem;
+  font-family: "Manrope", serif;
+  font-weight: 500;
+  color: #ececec;
+  text-decoration: none;
+  background-color: #010101;
+  border: solid 1px #333333;
+  border-radius: 5px;
+  padding: 1rem 1.5rem;
+}
+.addmember-container .addbill-form .bottom-section .buttons-article {
+  height: 30%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+.addmember-container .addbill-form .bottom-section .buttons-article .file-div {
+  width: 60%;
+  background-color: #111111;
+  border-radius: 5px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 1rem;
+}
+.addmember-container .addbill-form .bottom-section .buttons-article .file-div .file-name {
+  font-size: 1.75rem;
+  font-family: "Manrope", serif;
+  font-weight: 500;
+  color: #ececec;
+  text-decoration: none;
+}
+.addmember-container .addbill-form .bottom-section .buttons-article .file-div .delete-btn {
+  font-size: 1.75rem;
+  font-family: "Manrope", serif;
+  font-weight: 500;
+  color: #ececec;
+  text-decoration: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+.addmember-container .addbill-form .bottom-section .buttons-article .addfile-div {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.addmember-container .addbill-form .bottom-section .buttons-article .addfile-div .addfile-input {
+  display: none;
+}
+.addmember-container .addbill-form .bottom-section .buttons-article .addfile-div .addfile-btn {
+  width: 60%;
+  font-size: 1.75rem;
+  font-family: "Manrope", serif;
+  font-weight: 500;
+  color: #ececec;
+  text-decoration: none;
+  background-color: #010101;
+  border: solid 1px #333333;
+  border-radius: 5px;
+  padding: 0.5rem 1rem;
+  transition: ease 0.3s;
+  cursor: pointer;
+}
+.addmember-container .addbill-form .bottom-section .buttons-article .addfile-div .addfile-btn:hover {
+  background-color: #111111;
+  transition: ease 0.3s;
+}
+.addmember-container .addbill-form .bottom-section .buttons-article .addbill-btn {
+  width: 60%;
+  font-size: 1.75rem;
+  font-family: "Manrope", serif;
+  font-weight: 500;
+  color: #ececec;
+  text-decoration: none;
+  background-color: #333333;
+  border: none;
+  border-radius: 5px;
+  padding: 0.5rem 1rem;
+  transition: ease 0.3s;
+  cursor: pointer;
+}
+.addmember-container .addbill-form .bottom-section .buttons-article .addbill-btn:hover {
+  background-color: #c267f2;
+  transition: ease 0.3s;
+}
+.addmember-container .addbill-form .bottom-section .buttons-article .cancel-btn {
+  width: 60%;
+  font-size: 1.75rem;
+  font-family: "Manrope", serif;
+  font-weight: 500;
+  color: #ececec;
+  text-decoration: none;
+  background-color: #010101;
+  border: solid 1px #333333;
+  border-radius: 5px;
+  padding: 0.5rem 1rem;
+  transition: ease 0.3s;
+  cursor: pointer;
+}
+.addmember-container .addbill-form .bottom-section .buttons-article .cancel-btn:hover {
+  background-color: #db3737;
+  border: solid 1px #db3737;
+  transition: ease 0.3s;
+}
+
 .addbill-container {
   position: fixed;
   top: 0;
@@ -1574,8 +1769,8 @@
   align-items: center;
 }
 .addbill-container .addbill-form {
-  height: 70vh;
-  width: 30vw;
+  height: 90vh;
+  width: 50vw;
   border-radius: 15px;
   background-color: #010101;
   display: flex;
@@ -1609,10 +1804,11 @@
   height: 85%;
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   padding: 3rem 3rem;
 }
 .addbill-container .addbill-form .bottom-section .inputs-article {
-  height: 30%;
+  height: 25%;
   display: flex;
   flex-direction: column;
   justify-content: start;
@@ -1657,45 +1853,60 @@
   padding: 1rem 1.5rem;
 }
 .addbill-container .addbill-form .bottom-section .distribution-article {
-  height: 30%;
+  height: 45%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: start;
   gap: 1rem;
 }
-.addbill-container .addbill-form .bottom-section .distribution-article .div {
-  display: flex;
-  justify-content: start;
-  align-items: center;
-  gap: 1rem;
-}
-.addbill-container .addbill-form .bottom-section .distribution-article .div .text {
-  font-size: 2rem;
+.addbill-container .addbill-form .bottom-section .distribution-article .title {
+  font-size: 2.25rem;
   font-family: "Manrope", serif;
-  font-weight: 500;
+  font-weight: 600;
   color: #ececec;
   text-decoration: none;
 }
-.addbill-container .addbill-form .bottom-section .distribution-article .div .btn {
+.addbill-container .addbill-form .bottom-section .distribution-article .div {
+  height: 80%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: start;
+  gap: 1.5rem;
+  overflow-y: auto;
+  overflow-x: hidden;
+  border-radius: 10px;
+  border: solid 1px #333333;
+}
+.addbill-container .addbill-form .bottom-section .distribution-article .div .member-div {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.addbill-container .addbill-form .bottom-section .distribution-article .div .member-div .member-name {
   font-size: 1.75rem;
   font-family: "Manrope", serif;
   font-weight: 500;
   color: #ececec;
   text-decoration: none;
-  background-color: #222222;
+}
+.addbill-container .addbill-form .bottom-section .distribution-article .div .member-div .member-contribution {
+  padding: 1rem 1.5rem;
+  width: 30%;
+  font-size: 1.5rem;
+  font-family: "Manrope", serif;
+  font-weight: 500;
+  color: #ececec;
+  text-decoration: none;
+  background-color: #333333;
   border: none;
   border-radius: 5px;
-  padding: 0rem 0.5rem;
-  transition: ease 0.3s;
-  cursor: pointer;
-}
-.addbill-container .addbill-form .bottom-section .distribution-article .div .btn:hover {
-  background-color: #444444;
-  transition: ease 0.3s;
 }
 .addbill-container .addbill-form .bottom-section .buttons-article {
-  height: 40%;
+  height: 30%;
   display: flex;
   flex-direction: column;
   justify-content: center;

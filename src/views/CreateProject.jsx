@@ -1,8 +1,13 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { AuthContext } from '../context/AuthContext';
 import create from '../api/createProject';
 
 export default function CreateProject() {
+    const { setIsLogged } = useContext(AuthContext);
+    // obtener el token
+    const accessToken = sessionStorage.getItem('access-token');
+
     // botón "limpiar"
     const projectNameInput = useRef(null);
     const descriptionInput = useRef(null);
@@ -21,9 +26,9 @@ export default function CreateProject() {
     const handleDescriptionChange = (e) => { setDescription(e.target.value); };
     const handleSubmit = async (e) => {
         e.preventDefault();
-        let response = await create(name, description);
-        if (response.status === 200) {
-            navigate(`/project/${response.body.id}`);
+        let response = await create(accessToken, name, description);
+        if (response.status === 201) {
+            navigate(`/project/${response.project.id}`);
         } else {
             setError(response.message);
         }

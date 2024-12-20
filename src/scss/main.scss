@@ -6,6 +6,7 @@
 @use './views/createProject';
 @use './views/project';
 
+@use './components/addMember';
 @use './components/addBill';
 @use './components/pay';
 

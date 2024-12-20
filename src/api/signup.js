@@ -1,21 +1,21 @@
 const signup = async (username, email, password) => {
-    var myHeaders = new Headers();
+    let myHeaders = new Headers();
     myHeaders.append('Content-Type', 'application/json');
     
-    var raw = JSON.stringify({
-        'name': username,
+    let raw = JSON.stringify({
+        'username': username,
         'email': email,
         'password': password
     });
     
-    var requestOptions = {
+    let requestOptions = {
         method: 'POST',
         headers: myHeaders,
         body: raw,
         redirect: 'follow'
     };
     
-    let response = await fetch('http://localhost:3001/user/register', requestOptions);
+    let response = await fetch('http://localhost:3001/user/signup', requestOptions);
     let jsonData = await response.json();
     jsonData.status = response.status;
     jsonData.message = response.statusText;

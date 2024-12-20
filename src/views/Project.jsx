@@ -1,62 +1,88 @@
-import React, { useEffect, useState } from 'react'
-import { useParams } from 'react-router-dom';
-import getProjectById from '../api/getProjectById';
+import React, { useEffect, useState, useContext } from 'react'
+import { useParams, Link, useNavigate } from 'react-router-dom'
+import { AuthContext } from '../context/AuthContext';import fecthProjectById from '../api/fecthProjectById';
 import editIcon from '../assets/icons/edit.png';
 import createIcon from '../assets/icons/create.png';
 import profileIcon from '../assets/icons/profile.png';
+import AddMember from '../components/AddMember';
 import AddBill from '../components/AddBill';
 import Pay from '../components/Pay';
 
+import updateProjectName from '../api/updateProjectName';
+import fetchMembersById from '../api/fetchMembersById';
+import fetchBillsByProjectId from '../api/fetchBillsByProjectId';
+import fetchTotalSpent from '../api/fetchTotalSpent';
+import fetchTotalLend from '../api/fetchTotalLend';
+import fetchTotalOwed from '../api/fetchTotalOwed';
+
 export default function Project() {
+    const { setIsLogged } = useContext(AuthContext);
+    // obtener el token
+    const accessToken = sessionStorage.getItem('access-token');
     // cargar información del proyecto
     const { id } = useParams();
     const [project, setProject] = useState(null);
-    const [loading, setLoading] = useState(true);
+    const [projectName, setProjectName] = useState('');
+    const [members, setMembers] = useState([]);
+    const [bills, setBills] = useState([]);
+
+    const [totalSpent, setTotalSpent] = useState(0);
+    const [totalLend, setTotalLend] = useState(0);
+    const [totalOwed, setTotalOwed] = useState(0);
 
     useEffect(() => {
-        const fetchProject = async () => {
+        const fetchProjectData = async () => {
             try {
-                const data = await getProjectById(id);
+                const data = await fecthProjectById(accessToken, id, setProject);
                 setProject(data);
+                setProjectName(data.name);
+                const membersData = await fetchMembersById(accessToken, id);
+                setMembers(membersData.members);
+                const billsData = await fetchBillsByProjectId(accessToken, id);
+                setBills(billsData);
+
+                const totalSpentData = await fetchTotalSpent(accessToken, id);
+                // const totalLendData = await fetchTotalLend(accessToken, id);
+                // const totalOwedData = await fetchTotalOwed(accessToken, id);
+                setTotalSpent(totalSpentData);
+                // setTotalLend(totalLendData);
+                // setTotalOwed(totalOwedData);
             } catch (error) {
-                console.error('Error fetching project:', error);
-            } finally {
-                setLoading(false);
+                console.error('Error fetching project data:', error);
             }
         };
-
-        fetchProject();
-    }, [id]);
-
-    if (loading) {
-        console.log("Cargando proyecto...");
-    }
-
+        fetchProjectData();
+    }, [id, accessToken]); // Solo estas dependencias
+    
     if (!project) {
         console.log("¡Ha ocurrido un error! No pudimos encontrar el proyecto. Porfavor, intenta de nuevo más tarde.");
     }
 
     // estado para manejar la edición del nombre del proyecto
     const [editing, setEditing] = useState(false);
-    const [projectName, setProjectName] = useState(''); // Para almacenar el nombre editable
-
-    useEffect(() => {
-        if (project) {
-            setProjectName(project.name); // inicializar el nombre editable con el del proyecto
-        }
-    }, [project]);
 
     const handleSaveProjectName = () => {
-        // simulamos la acción de guardar los cambios del nombre del proyecto
+        const changeName = async () => {
+            try {
+                await updateProjectName(accessToken, projectName, setProjectName );
+            } catch (error) {
+                console.error('Error al cambiar el nombre del proyecto. Porfavor, intenta de nuevo más tarde')
+            }
+        }
+        changeName();
         setEditing(false);
     };
 
+    // SECCIÓN GASTOS -----------------------------------------------
     // agregar gasto
     const [addBill, setAddBill] = useState('hide');
+    const [addMember, setAddMember] = useState('hide');
 
     // sección derecha
     const [detail, setDetail] = useState('members');
     const [pagar, setPagar] = useState('hide');
+
+    const months = ['ene','feb','mar','abr','may','jun','jul','ago','sep','oct','nov','dic'];
 
     return (
         <main className='project-main'>
@@ -64,12 +90,9 @@ export default function Project() {
             <section className='left-section'>
                 <article className='title-article'>
                     <div className='top-div'>
-                        {/* <h3>project.name</h3> */}
-                        {/* <h3 className='title'>Cancún 2024</h3>
-                        <button type='button' className='edit-btn'><img src={editIcon} alt="Lápiz" className='img' /> Editar</button> */}
                         {!editing ? (
                             <>
-                                <h3 className='title'>{projectName || 'Cancún 2024'}</h3>
+                                <h3 className='title'>{projectName}</h3>
                                 <button
                                     type='button'
                                     className='edit-btn'
@@ -123,14 +146,15 @@ export default function Project() {
                     </div>
                     <section className='bills-section'>
                         {/* HACER LA CARGA REAL -------------------------------------------------------------------------------------------- */}
-                        <article className='bill'>
+                        {bills.map((bill) => (
+                            <article className='bill' key={bill.id}>
                                 <div className='date-description-div'>
                                     <div className='date-div'>
-                                        <p className='month'>abr</p>
-                                        <p className='day'>23</p>
+                                        <p className='month'>{months[new Date(bill.date).getMonth()]}</p>
+                                        <p className='day'>{new Date(bill.date).getDay()}</p>
                                     </div>
                                     <div className='bill-description'>
-                                        <h4 className='name'>Gasolina</h4>
+                                        <h4 className='name'>{bill.description}</h4>
                                         <p className='description'>Carlos pagó $5000.00</p>
                                     </div>
                                 </div>
@@ -138,38 +162,8 @@ export default function Project() {
                                     <p className='text owes'>debes</p>
                                     <p className='balance owes'>$1750.00</p>
                                 </div>
-                        </article>
-                        <article className='bill'>
-                                <div className='date-description-div'>
-                                    <div className='date-div'>
-                                        <p className='month'>jun</p>
-                                        <p className='day'>02</p>
-                                    </div>
-                                    <div className='bill-description'>
-                                        <h4 className='name'>Comida</h4>
-                                        <p className='description'>Pagaste $2000.00</p>
-                                    </div>
-                                </div>
-                                <div className='bill-balance'>
-                                    <p className='text lends'>prestaste</p>
-                                    <p className='balance lends'>$2000.00</p>
-                                </div>
-                        </article>
-                        <article className='bill'>
-                                <div className='date-description-div'>
-                                    <div className='date-div'>
-                                        <p className='month'>abr</p>
-                                        <p className='day'>23</p>
-                                    </div>
-                                    <div className='bill-description'>
-                                        <h4 className='name'>Hotel</h4>
-                                        <p className='description'>bla bla bla bla bla bla</p>
-                                    </div>
-                                </div>
-                                <div className='bill-balance'>
-                                    <p className='text'>no tienes deudas</p>
-                                </div>
-                        </article>
+                            </article>
+                        ))}
                     </section>
                 </article>
             </section>
@@ -183,25 +177,27 @@ export default function Project() {
                 </article>
                 {detail === 'members' && (
                     <article className='members-article'>
-                        {/* HACER LA CARGA REAL -------------------------------------------------------------------------------------------- */}
                         <div className='list'>
-                            {/* <p className='default-text'>Aún no hay integrantes en este proyecto.</p> */}
-                            <div className='item'> <p className='text'><img src={profileIcon} alt='Integrante' className='img' /> Carlos</p> </div>
-                            <div className='item'> <p className='text'><img src={profileIcon} alt='Integrante' className='img' /> Susana</p> </div>
-                            <div className='item'> <p className='text'><img src={profileIcon} alt='Integrante' className='img' /> Pedro</p> </div>
+                            {members.map((member)=>(
+                            <div className='item'> <p className='text'><img src={profileIcon} alt='Integrante' className='img' /> {member.username} </p> </div>
+                        ))}
                         </div>
                         <div className='btns-div'>
-                            <button type="button" className='btn'>Agregar amigo</button>
-                            <button type="button" className='btn'>Invitar integrante</button>
+                            <button type="button" onClick={()=>{setAddMember('show')}} className='btn'>Agregar integrante</button>
                         </div>
                     </article>
                 )}
+                {addMember === 'show' && (
+                    <div>
+                        <div className='overlay'></div>
+                        <AddMember project={project} setAddMember={setAddMember}></AddMember>
+                    </div>
+                )}
                 {detail === 'resume' && (
                     <article className='resume-article'>
-                        {/* HACER LA CARGA REAL -------------------------------------------------------------------------------------------- */}
                         <div className='div'>
                             <h4 className='title'>TOTAL GASTADO POR EL GRUPO</h4>
-                            <p className='amount'>$10000.00</p>
+                            <p className='amount'>${totalSpent}</p>
                         </div>
                         <div className='div'>
                             <h4 className='title'>TOTAL QUE PRESTASTE</h4>
@@ -215,54 +211,34 @@ export default function Project() {
                 )}
                 {detail === 'bills' && (
                     <article className='bills-article'>
-                        {/* HACER LA CARGA REAL -------------------------------------------------------------------------------------------- */}
-                        <div className='member'>
-                            <p className='resume'>Tomás (tu) debe $5000.00 en general</p>
-                            <div className='detail'>
-                                <p className='item'>debe $2000.00 a Carlos</p>
-                                <p className='item'>prestó $1000.00</p>
+                        {members.map((member)=>{
+                            const username = member.username;
+                            return (
+                                <div className='member'>
+                                <p className='resume'> {username} debe $5000.00 en general</p>
+                                <div className='detail'>
+                                    <p className='item'>debe $2000.00 a Carlos</p>
+                                    <p className='item'>prestó $1000.00</p>
+                                </div>
                             </div>
-                        </div>
-                        <div className='member'>
-                            <p className='resume'>Carlos debe $5000.00 en general</p>
-                            <div className='detail'>
-                                <p className='item'>debe $2000.00 a Susana</p>
-                                <p className='item'>prestó $1000.00</p>
-                            </div>
-                        </div>
-                        <div className='member'>
-                            <p className='resume'>Tomás (tu) debe $5000.00 en general</p>
-                            <div className='detail'>
-                                <p className='item'>debe $2000.00 a Carlos</p>
-                                <p className='item'>prestó $1000.00</p>
-                            </div>
-                        </div>
+                            )
+                        })}
                     </article>
                 )}
                 {detail === 'pay' && (
                     <article className='pay-article'>
-                        {/* HACER LA CARGA REAL -------------------------------------------------------------------------------------------- */}
-                        <div className='member'>
-                            <p className='name'><img src={profileIcon} alt='Integrante' className='img' /> Carlos</p>
-                            <div className="btn-div">
-                                <p className='detail'>aún le debes $2000.00</p>
-                                <button type="button" className='btn' onClick={()=>{setPagar('show')}}>PAGAR</button>
-                            </div>
-                        </div>
-                        <div className='member'>
-                            <p className='name'><img src={profileIcon} alt='Integrante' className='img' /> Susana</p>
-                            <div className="btn-div">
-                                <p className='detail'>aún le debes $1000.00</p>
-                                <button type="button" className='btn' onClick={()=>{setPagar('show')}}>PAGAR</button>
-                            </div>
-                        </div>
-                        <div className='member'>
-                            <p className='name'><img src={profileIcon} alt='Integrante' className='img' /> Carlos</p>
-                            <div className="btn-div">
-                                <p className='detail'>aún le debes $2000.00</p>
-                                <button type="button" className='btn' onClick={()=>{setPagar('show')}}>PAGAR</button>
-                            </div>
-                        </div>
+                        {members.map((member)=>{
+                            const username = member.username;
+                            return (
+                                <div className='member'>
+                                    <p className='name'><img src={profileIcon} alt='Integrante' className='img' /> {username}</p>
+                                    <div className="btn-div">
+                                        <p className='detail'>aún le debes $2000.00</p>
+                                        <button type="button" className='btn' onClick={()=>{setPagar('show')}}>PAGAR</button>
+                                    </div>
+                                </div>
+                            )
+                        })}
                     </article>
                 )}
             </section>
@@ -270,7 +246,7 @@ export default function Project() {
             {addBill === 'show' && (
                 <div>
                     <div className='overlay'></div>
-                    <AddBill project={project} setAddBill={setAddBill}></AddBill>
+                    <AddBill project={project} members={members} setAddBill={setAddBill}></AddBill>
                 </div>
             )}
             {/* PAGAR --------------------------------------------------------------------------------------------------------------------------- */}

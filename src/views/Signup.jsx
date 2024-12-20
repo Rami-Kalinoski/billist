@@ -37,7 +37,6 @@ export default function Signup() {
         // si las contraseñas no coinciden
         if (password.trim()!==confirmPassword.trim()) {
             setError("Las contraseñas no coinciden.");
-            console.log("Error 1")
             Swal.fire({
                 icon: "warning",
                 title: "Error",
@@ -88,7 +87,6 @@ export default function Signup() {
                 } else if (response.message === 'El email ya está registrado') {
                     // si el email ya existe
                     setError("Este email ya tiene asociada una cuenta en Billist.");
-                    console.log("Error 2")
                     Swal.fire({
                         icon: "warning",
                         title: "Error",
@@ -103,7 +101,6 @@ export default function Signup() {
                 } else if (response.message === 'Nombre de usuario en uso') {
                     // si el username ya existe
                     setError("Este nombre de usuario ya existe en Billist.");
-                    console.log("Error 3")
                     Swal.fire({
                         icon: "warning",
                         title: "Error",
@@ -118,7 +115,6 @@ export default function Signup() {
                 } else {
                     // si ocurre otro tipo de error
                     setError(response.message);
-                    console.log("Error 4")
                     Swal.fire({
                         icon: "warning",
                         title: "Error inesperado",
@@ -134,7 +130,6 @@ export default function Signup() {
             } catch (error) {
                 // si ocurre otro tipo de error
                 setError(error);
-                console.log("Error 5")
                 Swal.fire({
                     icon: "warning",
                     title: "Error inesperado",

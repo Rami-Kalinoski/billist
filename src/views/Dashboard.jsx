@@ -2,13 +2,12 @@ import React, { useEffect, useState, useContext  } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { AuthContext } from '../context/AuthContext';
 import Swal from 'sweetalert2';
-
 import create from '../assets/icons/create.png';
 import addFriend from '../assets/icons/add-firend.png';
 import profile from '../assets/icons/profile.png';
 
-import fetchFriends from '../api/getFriendsFromUserById';
-import fetchProjects from '../api/getProjectsFromUserById';
+import fetchProjects from '../api/fetchProjects';
+import fetchUserGeneralBalance from '../api/fetchUserGeneralBalance';
 import validateToken from '../api/validateToken';
 
 export default function Dashboard() {
@@ -19,29 +18,30 @@ export default function Dashboard() {
     // cargar información del usuario
     const [friends, setFriends] = useState([]);
     const [projects, setProjects] = useState([]);
+    const [gralBalance, setGralBalance] = useState(0);
     const navigate = useNavigate();
 
     // AMIGOS
-    useEffect(() => {
-        (async () => {
-            try {
-                // cargar amigos
-                const response = await fetchFriends(accessToken, setFriends);
-                if (response.status === 201) {
-                    navigate('/login');
-                }
-            } catch (error) {
-                console.error("Error en la llamada a las APIs:", error);
-            }
-        })();
-    }, [accessToken, navigate]);
+    // useEffect(() => {
+    //     (async () => {
+    //         try {
+    //             // cargar amigos
+    //             const response = await fetchFriends(accessToken, setFriends);
+    //             if (response.status === 201) {
+    //                 navigate('/login');
+    //             }
+    //         } catch (error) {
+    //             console.error("Error en la llamada a las APIs:", error);
+    //         }
+    //     })();
+    // }, [accessToken, navigate]);
     // PROYECTOS
     useEffect(() => {
         (async () => {
             try {
                 // cargar proyectos
                 const response = await fetchProjects(accessToken, setProjects);
-                if (response.status === 201) {
+                if (response.status === 200) {
                     navigate('/login');
                 }
             } catch (error) {
@@ -55,7 +55,7 @@ export default function Dashboard() {
         try {
             // cargar proyectos
             const response = await validateToken(accessToken);
-            if (response.status === 201) {
+            if (response.status === 200) {
                 navigate('/createProject');
             } else {
                 setIsLogged(false)
@@ -94,6 +94,19 @@ export default function Dashboard() {
             console.error("Error en la llamada a las APIs:", error);
         }
     }
+
+
+    // SALDO GENERAL PENDIENTE
+    useEffect(() => {
+        (async () => {
+            try {
+                const response = await fetchUserGeneralBalance(accessToken, setGralBalance);
+            } catch (error) {
+                console.error("Error al cargar el balance general pendiente", error);
+            }
+        })();
+    }, [accessToken]);
+
 
     return (
         <main className='dashboard-main'>
@@ -158,10 +171,10 @@ export default function Dashboard() {
                     <button type='button' onClick={handleCreateProject} className='create-project-btn'><img src={create} alt="Crear proyecto" className='img' /> CREAR</button>
                 </article>
                 <article className="projects-article"> {/* lista de proyectos */}
-                    {/* {projects.map(project => (
+                    {projects.map(project => (
                         <Link
                             key={project.id}
-                            to={`/projects/${project.id}`}
+                            to={`/project/${project.id}`}
                             className="project-link"
                             aria-label={`Ver proyecto ${project.name}`}
                         >
@@ -182,31 +195,7 @@ export default function Dashboard() {
                                     : 'no tienes deudas'}
                             </p>
                         </Link>
-                    ))} */}
-                    <Link
-                            to={`/projects/1`}
-                            className="project-link"
-                            aria-label='Ver proyecto Cancún 2024'
-                    >
-                            <p className="project-name">Cancún 2024</p>
-                            <p className='project-balance owes'>debes $5.000</p>
-                    </Link>
-                    <Link
-                            to={`/projects/2`}
-                            className="project-link"
-                            aria-label='Ver proyecto Navidad 2024'
-                    >
-                            <p className="project-name">Navidad 2024</p>
-                            <p className='project-balance payed'>no tienes deudas</p>
-                    </Link>
-                    <Link
-                            to={`/projects/3`}
-                            className="project-link"
-                            aria-label='Ver proyecto Año nuevo 2025'
-                    >
-                            <p className="project-name">Año nuevo 2025</p>
-                            <p className='project-balance lends'>prestate $3.000</p>
-                    </Link>
+                    ))}
                 </article>
             </section>
         </main>
